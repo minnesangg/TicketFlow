@@ -8,7 +8,7 @@ Future updates will include **report generation, improved search filters, docume
 
 ## 📚 Documentation
 
-Documentation will be available soon via **Doxygen** and hosted on **GitHub Pages**.
+For detailed documentation visit [TicketFlow Documentation](https://minnesangg.github.io/TicketFLowDocs/).
 
 ## 📌 Features
 
@@ -34,6 +34,12 @@ Documentation will be available soon via **Doxygen** and hosted on **GitHub Page
 
 🔹 Delete or archive ticket requests.
 
+## 🛠️ Technologies
+
+- **Language**: C++
+- **Framework**: Qt
+- **Database**: SQLite
+
 ## 📜 License and Third-Party Components
 
 1. This project is licensed under the **GNU General Public License v3.0 (GPLv3)**.  
@@ -56,7 +62,7 @@ Contributions are welcome!
 
 ## 📚 Документация
 
-Документация появится позже через **Doxygen** и будет размещена на **GitHub Pages**.
+Для подробной документации посетите [Документацию TicketFlow](https://minnesangg.github.io/TicketFLowDocs/).
 
 ## 📌 Возможности
 
@@ -82,6 +88,11 @@ Contributions are welcome!
 
 🔹 Добавление новых заявок на авиабилеты в базу данных.
 
+## 🛠️ Технологии
+
+- **Язык**: C++
+- **Фреймворк**: Qt
+- **База данных**: SQLite
 
 ## 📜 Лицензия и сторонние компоненты
 

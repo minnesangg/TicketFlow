@@ -16,7 +16,7 @@ For detailed documentation visit [TicketFlow Documentation](https://minnesangg.g
 
 ✅ User-friendly and minimalistic interface.
 
-✅ Local storage using **SQLite**.
+✅ Local storage using **Postgres**.
 
 ## 🚀 Future Improvements
 
@@ -38,7 +38,7 @@ For detailed documentation visit [TicketFlow Documentation](https://minnesangg.g
 
 - **Language**: C++
 - **Framework**: Qt
-- **Database**: SQLite
+- **Database**: Postgre SQL(Beekeeper Studio)
 
 ## 📜 License and Third-Party Components
 
@@ -70,7 +70,7 @@ Contributions are welcome!
 
 ✅ Удобный и минималистичный интерфейс.
 
-✅ Локальное хранение данных через **SQLite**.
+✅ Локальное хранение данных через **Postgres**.
 
 ## 🚀 Будущие улучшения
 
@@ -92,7 +92,7 @@ Contributions are welcome!
 
 - **Язык**: C++
 - **Фреймворк**: Qt
-- **База данных**: SQLite
+- **База данных**: Postgre SQL(Beekeeper Studio)
 
 ## 📜 Лицензия и сторонние компоненты
 

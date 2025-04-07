@@ -28,15 +28,33 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
+/**
+ * @brief The MainWindow class represents the main window of the application.
+ * It provides the user interface for the main functionality of the application.
+ * Here are the buttons for navigating the application:
+ *      1. Go to the CRUD window (manage applications).
+ *      2. Go to the search window (search applications by category, such as airports, airlines, etc.).
+ *      3. Open application settings (language, theme, and other settings).
+ *      4. Exit the application.
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
+
+    /**
+     * @brief Constructor for the MainWindow class.
+     * @param parent The parent widget of this main window.
+     */
     MainWindow(QWidget *parent = nullptr);
+
+    /**
+     * @brief Destructor for the MainWindow class.
+     */
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; ///< Pointer to the user interface of the main window.
 };
 #endif // MAINWINDOW_H

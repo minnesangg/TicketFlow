@@ -27,26 +27,73 @@ namespace Ui {
 class Login;
 }
 
+/**
+    * @brief The Login class handles the login functionality of the application.
+    * It provides a user interface for entering a password and verifies it against
+    * a stored hash. If the password is correct, it allows access to the main
+    * application.
+ */
 class Login : public QDialog
 {
     Q_OBJECT
 
 public:
+    /**
+        * @brief Constructor for the Login class.
+        * @param parent The parent widget of this dialog.
+        */
     explicit Login(QWidget *parent = nullptr);
+
+    /**
+        * @brief Destructor for the Login class.
+        */
     ~Login();
 
 private slots:
+    /**
+        * @brief Slot for handling the "Check Password" button click event.
+        * It verifies the entered password and either allows access or shows an error message.
+        */
     void on_checkPassButton_clicked();
 
+    /**
+        * @brief Slot for handling the "Sign In" button click event.
+        * when pressed, two passwords are compared, and if they are equal, 
+        * they are saved in the password.ini file(Then used to log in.)
+        */
     void on_signInButton_clicked();
 
 private:
-    Ui::Login *ui;
+
+    Ui::Login *ui; ///< Pointer to the UI elements of the Login dialog.
+
+    /**
+        * @brief Checks if the entered password matches the stored hash.
+        * @param password The password to check.
+        * @return True if the password is correct, false otherwise.
+        */
     bool checkPassword(QString password);
+
+    /**
+        * @brief Checks if the entered password matches the stored hash.
+        * @param password The password to hash.
+        * @return True if password is equal to the stored hash, false otherwise.
+        */
     bool verifyPassword(const QString& inputPassword);
+
+    /**
+        * @brief Retrieves the stored password hash from the configuration file.
+        * @return The stored password hash as a QByteArray.
+        */
     QByteArray getPasswordHash();
+
+    /**
+        * @brief Saves the entered password to the configuration file.
+        * @param password The password to save.
+        */
     void savePassword(QString password);
-    QStackedWidget *stackedWidget;
+
+    QStackedWidget *stackedWidget; ///<! Pointer to the stacked widget for switching between different views.
 
 };
 

@@ -21,6 +21,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "database.h"
+#include "manager.h"
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,41 +33,51 @@ QT_END_NAMESPACE
 
 /**
  * @brief The MainWindow class represents the main window of the application.
- * It provides the user interface for the main functionality of the application.
- * Here are the buttons for navigating the application:
- *      1. Go to the CRUD window (manage applications).
- *      2. Go to the search window (search applications by category, such as airports, airlines, etc.).
- *      3. Open application settings (language, theme, and other settings).
- *      4. Exit the application.
+ * It provides the user interface for interacting with the main functionality of the application.
+ *
+ * It includes the following actions:
+ * - Exit the application with a confirmation prompt.
+ * - Open the manage window for CRUD operations on applications.
+ *
+ * Slots:
+ * - `on_exitButton_clicked()`: Handles the click event of the exit button, asking for confirmation to close the application.
+ * - `on_manageButton_clicked()`: Opens the manage window for managing ticket applications.
  */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-
     /**
      * @brief Constructor for the MainWindow class.
+     * Initializes the user interface and sets up the layout.
      * @param parent The parent widget of this main window.
      */
     MainWindow(QWidget *parent = nullptr);
 
     /**
      * @brief Destructor for the MainWindow class.
+     * Cleans up resources used by the main window.
      */
     ~MainWindow();
 
 private slots:
-
     /**
-     * @brief Exit Button. When clicked, it asks the user if they are sure they want to close the program.
-     * If they confirm, the program is closed.
+     * @brief Slot for handling the exit button click event.
+     * Prompts the user for confirmation before closing the program.
      */
     void on_exitButton_clicked();
 
-    void on_pushButton_8_clicked();
+    /**
+     * @brief Slot for handling the manage button click event.
+     * Opens the management window for handling CRUD operations on applications.
+     */
+    void on_manageButton_clicked();
 
 private:
     Ui::MainWindow *ui; ///< Pointer to the user interface of the main window.
+    Database db; ///< Database instance for managing interactions with the database.
+    Manager manager; ///< Manager instance for handling application-specific logic.
 };
+
 #endif // MAINWINDOW_H

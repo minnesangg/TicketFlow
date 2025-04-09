@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     if(login.exec() == QDialog::Accepted){
         MainWindow window;
         window.show();
-        window.resize(800, 600);
+        window.resize(800, 550);
         return app.exec();
     }
 

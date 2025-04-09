@@ -16,36 +16,38 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include "ticket.h"
 
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+Ticket::Ticket() {}
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-    ui->buttonsLayout->setAlignment(Qt::AlignCenter);
+void Ticket::setPassengerID(int passengerID){
+    this->passengerID = passengerID;
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
+void Ticket::setPlaneID(int planeID){
+    this->planeID = planeID;
 }
 
-void MainWindow::on_exitButton_clicked()
-{
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Confirm", "Are you sure you want to close the program?",
-                                  QMessageBox::Yes | QMessageBox::No);
-
-    if (reply == QMessageBox::Yes) {
-        close();
-    }
+void Ticket::setPrice(int price){
+    this->price = price;
 }
 
-void MainWindow::on_manageButton_clicked()
-{
-    manager.show();
+void Ticket::setSeatNumber(int seatNumber){
+    this->seatNumber = seatNumber;
 }
 
+void Ticket::setDepartureCity(QString departureCity){
+    this->departureCity = departureCity;
+}
+
+void Ticket::setArrivalCity(QString arrivalCity){
+    this->arrivalCity = arrivalCity;
+}
+
+void Ticket::setDepartureTime(QDateTime departureTime){
+    this->departureTime = departureTime;
+}
+
+void Ticket::setArrivalTime(QDateTime arrivalTime){
+    this->arrivalTime = arrivalTime;
+}

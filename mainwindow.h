@@ -54,6 +54,16 @@ public:
      */
     ~MainWindow();
 
+private slots:
+
+    /**
+     * @brief Exit Button. When clicked, it asks the user if they are sure they want to close the program.
+     * If they confirm, the program is closed.
+     */
+    void on_exitButton_clicked();
+
+    void on_pushButton_8_clicked();
+
 private:
     Ui::MainWindow *ui; ///< Pointer to the user interface of the main window.
 };

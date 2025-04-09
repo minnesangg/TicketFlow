@@ -49,7 +49,7 @@
      </property>
      <property name="font">
       <font>
-       <family>Noto Sans Mono</family>
+       <family>Monospace</family>
        <pointsize>12</pointsize>
       </font>
      </property>
@@ -112,7 +112,7 @@ QLineEdit:focus {
      </property>
      <property name="font">
       <font>
-       <family>Noto Sans Mono</family>
+       <family>Monospace</family>
        <pointsize>13</pointsize>
       </font>
      </property>

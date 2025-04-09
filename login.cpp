@@ -19,12 +19,6 @@
 
 #include "login.h"
 #include "ui_login.h"
-#include <QString>
-#include <QMessageBox>
-#include <QSettings>
-#include <QCryptographicHash>
-#include <QByteArray>
-#include <QFile>
 
 
 Login::Login(QWidget *parent)

@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Manager</class>
+ <widget class="QDialog" name="Manager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Manager</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="QIcon::ThemeIcon::EditPaste"/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #e6f0fa; 
+}</string>
+  </property>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>301</width>
+     <height>651</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QListWidget {
+    background-color: #f0f8ff; 
+    border: 1px solid #4682b4; 
+    border-radius: 8px;
+    padding: 5px;
+}
+
+QListWidget::item {
+    padding: 8px;
+}
+
+QListWidget::item:selected {
+    background-color: #4682b4; 
+    color: white;
+}</string>
+   </property>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>20</y>
+     <width>651</width>
+     <height>651</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QStackedWidget {
+    background-color: #ffffff;
+    border: none;
+}</string>
+   </property>
+   <widget class="QWidget" name="addTicketPage">
+    <widget class="QLabel" name="ticketsLabel">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>-10</y>
+       <width>241</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Monospace</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 28px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Manage Tickets</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>216</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="labelsLayout">
+      <property name="leftMargin">
+       <number>17</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="passengerIDLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Passenger </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="planeIDLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Plane Model</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="departureCityLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Departure City</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="arrivalCityLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Arrival City</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="departureTimeLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Departure Time</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="arrivalTimeLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Arrival Time</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="seatNumberLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Seat Number</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="priceLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Price</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>70</y>
+       <width>421</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="comboBoxesLayout">
+      <item>
+       <layout class="QHBoxLayout" name="passIDLayout">
+        <item>
+         <widget class="QComboBox" name="nameCombo">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QComboBox {
+    border: 2px solid #3498db; 
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1;  
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QComboBox:hover {
+    border-color: #2980b9; 
+}
+
+QComboBox:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}
+
+QComboBox::drop-down {
+    border: none;
+    background-color: #3498db;  
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ecf0f1; 
+    border: 2px solid #3498db;  
+    color: #2c3e50;  
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 5px;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #3498db;  
+    color: #ffffff;  
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="surnameCombo">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QComboBox {
+    border: 2px solid #3498db; 
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1;  
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QComboBox:hover {
+    border-color: #2980b9; 
+}
+
+QComboBox:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}
+
+QComboBox::drop-down {
+    border: none;
+    background-color: #3498db;  
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ecf0f1; 
+    border: 2px solid #3498db;  
+    color: #2c3e50;  
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 5px;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #3498db;  
+    color: #ffffff;  
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="planeIDLayout">
+        <item>
+         <widget class="QComboBox" name="planeCombo">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QComboBox {
+    border: 2px solid #3498db; 
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1;  
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QComboBox:hover {
+    border-color: #2980b9; 
+}
+
+QComboBox:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}
+
+QComboBox::drop-down {
+    border: none;
+    background-color: #3498db;  
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ecf0f1; 
+    border: 2px solid #3498db;  
+    color: #2c3e50;  
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 5px;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #3498db;  
+    color: #ffffff;  
+}</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>180</y>
+       <width>421</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="lineEditsLayout">
+      <item>
+       <widget class="QLineEdit" name="departureCityLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="arrivalCityLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="departureTimeLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="arrivalTimeLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="seatNumberLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="priceLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>560</y>
+       <width>491</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="buttonsLayout">
+      <item>
+       <widget class="QPushButton" name="addTicketButton">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #4682b4; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #5a9bd5; 
+}
+
+QPushButton:pressed {
+    background-color: #2e5984; 
+}
+</string>
+        </property>
+        <property name="text">
+         <string>ADD TICKET</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteTicketButton">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #dc143c; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #e94b6d;
+}
+
+QPushButton:pressed {
+    background-color: #a60f2d;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>DELETE TICKET</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="addPlanePage">
+    <widget class="QLabel" name="planeLabel">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>-10</y>
+       <width>201</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Noto Sans Mono</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Manage Planes</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="addHumanPage">
+    <widget class="QLabel" name="passengersLabel">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>-10</y>
+       <width>241</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Monospace</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Manage Passengers</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

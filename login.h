@@ -22,6 +22,13 @@
 
 #include <QDialog>
 #include <QStackedWidget>
+#include <QString>
+#include <QMessageBox>
+#include <QSettings>
+#include <QCryptographicHash>
+#include <QByteArray>
+#include <QFile>
+
 
 namespace Ui {
 class Login;

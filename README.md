@@ -8,7 +8,7 @@ Future updates will include **report generation, improved search filters, docume
 
 ## 📚 Documentation
 
-Documentation will be available soon via **Doxygen** and hosted on **GitHub Pages**.
+For detailed documentation visit [TicketFlow Documentation](https://minnesangg.github.io/TicketFLowDocs/).
 
 ## 📌 Features
 
@@ -16,7 +16,7 @@ Documentation will be available soon via **Doxygen** and hosted on **GitHub Page
 
 ✅ User-friendly and minimalistic interface.
 
-✅ Local storage using **SQLite**.
+✅ Local storage using **Postgres**.
 
 ## 🚀 Future Improvements
 
@@ -33,6 +33,12 @@ Documentation will be available soon via **Doxygen** and hosted on **GitHub Page
 🔹 Edit and update existing ticket requests.
 
 🔹 Delete or archive ticket requests.
+
+## 🛠️ Technologies
+
+- **Language**: C++
+- **Framework**: Qt
+- **Database**: Postgre SQL(Beekeeper Studio)
 
 ## 📜 License and Third-Party Components
 
@@ -56,7 +62,7 @@ Contributions are welcome!
 
 ## 📚 Документация
 
-Документация появится позже через **Doxygen** и будет размещена на **GitHub Pages**.
+Для подробной документации посетите [Документацию TicketFlow](https://minnesangg.github.io/TicketFLowDocs/).
 
 ## 📌 Возможности
 
@@ -64,7 +70,7 @@ Contributions are welcome!
 
 ✅ Удобный и минималистичный интерфейс.
 
-✅ Локальное хранение данных через **SQLite**.
+✅ Локальное хранение данных через **Postgres**.
 
 ## 🚀 Будущие улучшения
 
@@ -82,6 +88,11 @@ Contributions are welcome!
 
 🔹 Добавление новых заявок на авиабилеты в базу данных.
 
+## 🛠️ Технологии
+
+- **Язык**: C++
+- **Фреймворк**: Qt
+- **База данных**: Postgre SQL(Beekeeper Studio)
 
 ## 📜 Лицензия и сторонние компоненты
 

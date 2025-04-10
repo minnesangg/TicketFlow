@@ -1,6 +1,6 @@
 # TicketFlow - Airline Ticket Request Manager
 
-**TicketFlow** is an application built with **Qt (C++)**, using a **SQLite** database for storage.  
+**TicketFlow** is an application built with **Qt (C++)**, using a **Postgres** database for storage.  
 It allows users to **manage airline ticket requests** through a clean and functional interface.  
 All data is stored **locally** to ensure security and privacy.
 
@@ -54,7 +54,7 @@ Contributions are welcome!
 
 # TicketFlow - Менеджер заявок на авиабилеты
 
-**TicketFlow** — это приложение, разработанное на **Qt (C++)** с использованием базы данных **SQLite**.  
+**TicketFlow** — это приложение, разработанное на **Qt (C++)** с использованием базы данных **Postgres**.  
 Оно позволяет **управлять заявками на авиабилеты** через удобный и функциональный интерфейс.  
 Все данные хранятся **локально**, что обеспечивает безопасность и конфиденциальность.
 

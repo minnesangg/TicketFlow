@@ -24,8 +24,36 @@
 #include <QDateTime>
 
 /**
- * @brief The Ticket class represents a flight ticket with attributes such as passenger, plane, and flight details.
+ * @brief This file defines the Ticket class, which represents a flight ticket in the system.
+ *
+ * The Ticket class provides attributes and methods for storing and managing flight ticket details, including:
+ * 1. Passenger and plane information.
+ * 2. Departure and arrival details.
+ * 3. Price, seat number, and ticket ID.
+ *
+ * Public Methods:
+ * - `Ticket()`: Constructor for initializing a ticket.
+ * - `setPassengerID(int passengerID)`: Sets the ID of the passenger associated with the ticket.
+ * - `setPlaneID(int planeID)`: Sets the ID of the plane associated with the ticket.
+ * - `setPrice(int price)`: Sets the price of the ticket.
+ * - `setSeatNumber(int seatNumber)`: Sets the seat number for the ticket.
+ * - `setDepartureCity(QString departureCity)`: Sets the departure city for the flight.
+ * - `setArrivalCity(QString arrivalCity)`: Sets the arrival city for the flight.
+ * - `setDepartureTime(QDateTime departureTime)`: Sets the departure time for the flight.
+ * - `setArrivalTime(QDateTime arrivalTime)`: Sets the arrival time for the flight.
+ *
+ * Attributes:
+ * - `departureCity`: The city from which the flight departs.
+ * - `arrivalCity`: The city where the flight arrives.
+ * - `departureTime`: The date and time of departure.
+ * - `arrivalTime`: The date and time of arrival.
+ * - `price`: The price of the ticket.
+ * - `seatNumber`: The seat number assigned to the passenger.
+ * - `ticketID`: The unique ID of the ticket.
+ * - `passengerID`: The ID of the passenger who owns the ticket.
+ * - `planeID`: The ID of the plane for the flight.
  */
+
 class Ticket
 {
 public:

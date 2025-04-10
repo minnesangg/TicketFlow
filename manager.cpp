@@ -18,6 +18,7 @@
 
 #include "manager.h"
 #include "ui_manager.h"
+#include <QTimer>
 
 Manager::Manager(QWidget *parent)
     : QDialog(parent)
@@ -74,11 +75,39 @@ void Manager::loadInfo(){
 
 void Manager::on_addTicketButton_clicked()
 {
+    QVector<QLineEdit*> lines = {ui->arrivalCityLine, ui->arrivalTimeLine, ui->departureCityLine, ui->departureTimeLine, ui->priceLine,
+                                  ui->seatNumberLine};
     setTicketOptions();
-    if (db.addTicketToDatabase(ticket)) {
-        qDebug() << "Ticket added successfully!";
+    if(ifLineFilled(lines)){
+        if (db.addTicketToDatabase(ticket)) {
+            ui->statusBarLine->setText("Ticket added successfully!");
+            clearStatusBar();
+        } else {
+            ui->statusBarLine->setText("Failed to add ticket! Database Error.");
+            clearStatusBar();
+        }
     } else {
-        qDebug() << "Failed to add ticket!";
+        ui->statusBarLine->setText("Failed to add ticket. Fill all lines!");
+        clearStatusBar();
+    }
+}
+
+void Manager::on_deleteTicketButton_clicked()
+{
+    QVector<QLineEdit*> lines = {ui->arrivalCityLine, ui->arrivalTimeLine, ui->departureCityLine, ui->departureTimeLine, ui->priceLine,
+                                  ui->seatNumberLine};
+    setTicketOptions();
+    if(ifLineFilled(lines)){
+        if(db.deleteTicketFromDatabase(ticket)){
+            ui->statusBarLine->setText("Ticket succesfully deleted!");
+            clearStatusBar();
+        } else {
+            ui->statusBarLine->setText("Failed to delete ticket! Database Error.");
+            clearStatusBar();
+        }
+    } else {
+        ui->statusBarLine->setText("Failed to add ticket. Fill all lines!");
+        clearStatusBar();
     }
 }
 
@@ -99,6 +128,69 @@ void Manager::setTicketOptions(){
     ticket.setArrivalCity(ui->arrivalCityLine->text());
     ticket.setDepartureTime(departureTime);
     ticket.setArrivalTime(arrivalTime);
-    ticket.setSeatNumber(ui->seatNumberLine->text().toInt());
-    ticket.setPrice(ui->priceLine->text().toInt());
+    ticket.setSeatNumber(ui->seatNumberLine->text());
+    ticket.setPrice(ui->priceLine->text().toFloat());
 }
+
+void Manager::clearStatusBar(){
+    QTimer::singleShot(3000, this, [=]() {
+        ui->statusBarLine->clear();
+    });
+}
+
+bool Manager::ifLineFilled(QVector<QLineEdit*> lines){
+    for(int i = 0; i < lines.size(); i++){
+        if (lines[i]->text().isEmpty()) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+void Manager::on_addPlaneButton_clicked()
+{
+    QVector<QLineEdit*> lines = {ui->modelLine, ui->airlineLine, ui->capacityLine};
+    setPlaneOptions();
+
+    if(ifLineFilled(lines)){
+        if(db.addPlaneToDatabase(plane)){
+            ui->statusBarLine->setText("Plane added succesfully!");
+            clearStatusBar();
+        } else {
+            ui->statusBarLine->setText("Failed to add plane! Database Error.");
+            clearStatusBar();
+        }
+    } else {
+        ui->statusBarLine->setText("Failed to add plane. Fill all lines!");
+        clearStatusBar();
+    }
+}
+
+void Manager::on_deletePlaneButton_clicked()
+{
+    QVector<QLineEdit*> lines = {ui->modelLine, ui->airlineLine, ui->capacityLine};
+    setPlaneOptions();
+
+    if(ifLineFilled(lines)){
+        if(db.deletePlaneFromDatabase(plane)){
+            ui->statusBarLine->setText("Plane deleted succesfully!");
+            clearStatusBar();
+        } else {
+            ui->statusBarLine->setText("Failed to delete plane! Database Error.");
+            clearStatusBar();
+        }
+    } else {
+        ui->statusBarLine->setText("Failed to delete plane. Fill all lines!");
+        clearStatusBar();
+    }
+}
+
+void Manager::setPlaneOptions(){
+    plane.setModel(ui->modelLine->text());
+    plane.setAirline(ui->airlineLine->text());
+    plane.setCapacity(ui->capacityLine->text().toInt());
+}
+
+
+

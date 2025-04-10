@@ -24,8 +24,8 @@
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>10</x>
+     <y>10</y>
      <width>301</width>
      <height>651</height>
     </rect>
@@ -35,6 +35,9 @@
      <family>Monospace</family>
      <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">QListWidget {
@@ -73,9 +76,9 @@ QListWidget::item:selected {
     <widget class="QLabel" name="ticketsLabel">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>210</x>
        <y>-10</y>
-       <width>241</width>
+       <width>281</width>
        <height>61</height>
       </rect>
      </property>
@@ -93,7 +96,7 @@ QListWidget::item:selected {
 }</string>
      </property>
      <property name="text">
-      <string>Manage Tickets</string>
+      <string>TICKETS MANAGER</string>
      </property>
     </widget>
     <widget class="QWidget" name="verticalLayoutWidget">
@@ -277,7 +280,7 @@ QListWidget::item:selected {
        <x>220</x>
        <y>70</y>
        <width>421</width>
-       <height>101</height>
+       <height>111</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="comboBoxesLayout">
@@ -290,6 +293,9 @@ QListWidget::item:selected {
             <family>Arial</family>
             <pointsize>-1</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">QComboBox {
@@ -340,6 +346,9 @@ QComboBox QAbstractItemView::item:selected {
             <family>Arial</family>
             <pointsize>-1</pointsize>
            </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="styleSheet">
            <string notr="true">QComboBox {
@@ -395,6 +404,9 @@ QComboBox QAbstractItemView::item:selected {
             <pointsize>-1</pointsize>
            </font>
           </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
           <property name="styleSheet">
            <string notr="true">QComboBox {
     border: 2px solid #3498db; 
@@ -447,7 +459,7 @@ QComboBox QAbstractItemView::item:selected {
        <x>220</x>
        <y>180</y>
        <width>421</width>
-       <height>381</height>
+       <height>391</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="lineEditsLayout">
@@ -715,12 +727,19 @@ QPushButton:pressed {
     </widget>
    </widget>
    <widget class="QWidget" name="addPlanePage">
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+    </property>
     <widget class="QLabel" name="planeLabel">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>210</x>
        <y>-10</y>
-       <width>201</width>
+       <width>251</width>
        <height>61</height>
       </rect>
      </property>
@@ -734,21 +753,257 @@ QPushButton:pressed {
       <string notr="true">QLabel {
     color: #1c1c1c; 
     background: transparent; 
-    font-size: 22px;
+    font-size: 28px;
 }</string>
      </property>
      <property name="text">
-      <string>Manage Planes</string>
+      <string>PLANES MANAGER</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>130</y>
+       <width>160</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="planeLabelLayout">
+      <property name="leftMargin">
+       <number>30</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="modelLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Model</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="airlineLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Airline</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="capacityLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Capacity</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>110</y>
+       <width>471</width>
+       <height>301</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="linesLayout">
+      <item>
+       <widget class="QLineEdit" name="modelLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="airlineLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="capacityLine">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>490</y>
+       <width>451</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="addPlaneButton">
+        <property name="font">
+         <font>
+          <family>Noto Sans Mono</family>
+          <pointsize>17</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #4682b4; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #5a9bd5; 
+}
+
+QPushButton:pressed {
+    background-color: #2e5984; 
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Add Plane</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deletePlaneButton">
+        <property name="font">
+         <font>
+          <family>Noto Sans Mono</family>
+          <pointsize>17</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #dc143c; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #e94b6d;
+}
+
+QPushButton:pressed {
+    background-color: #a60f2d;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Delete Plane</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="addHumanPage">
     <widget class="QLabel" name="passengersLabel">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>210</x>
        <y>-10</y>
-       <width>241</width>
+       <width>331</width>
        <height>61</height>
       </rect>
      </property>
@@ -762,14 +1017,45 @@ QPushButton:pressed {
       <string notr="true">QLabel {
     color: #1c1c1c; 
     background: transparent; 
-    font-size: 22px;
+    font-size: 28px;
 }</string>
      </property>
      <property name="text">
-      <string>Manage Passengers</string>
+      <string>PASSENGERS MANAGER</string>
      </property>
     </widget>
    </widget>
+  </widget>
+  <widget class="QLineEdit" name="statusBarLine">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>670</y>
+     <width>1001</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Monospace</family>
+     <pointsize>-1</pointsize>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    background-color: #f0f8ff; 
+    color: #1c1c1c;
+    border-top: 1px solid #4682b4; 
+    padding: 4px;
+    font-size: 14px;
+}</string>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -31,6 +31,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     manager.cpp \
+    plane.cpp \
     ticket.cpp
 
 HEADERS += \
@@ -38,6 +39,7 @@ HEADERS += \
     login.h \
     mainwindow.h \
     manager.h \
+    plane.h \
     ticket.h
 
 FORMS += \

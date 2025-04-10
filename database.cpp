@@ -102,16 +102,60 @@ bool Database::addTicketToDatabase(const Ticket& ticket) {
     query.prepare("INSERT INTO Tickets (passenger_id, plane_id, departure_city, arrival_city, departure_time, arrival_time, seat_number, price) "
                   "VALUES (:passenger_id, :plane_id, :departure_city, :arrival_city, :departure_time, :arrival_time, :seat_number, :price)");
 
-    query.bindValue(":passenger_id", ticket.passengerID);
-    query.bindValue(":plane_id", ticket.planeID);
-    query.bindValue(":departure_city", ticket.departureCity);
-    query.bindValue(":arrival_city", ticket.arrivalCity);
-    query.bindValue(":departure_time", ticket.departureTime.toString("yyyy-MM-dd HH:mm:ss"));
-    query.bindValue(":arrival_time", ticket.arrivalTime.toString("yyyy-MM-dd HH:mm:ss"));
-    query.bindValue(":seat_number", ticket.seatNumber);
-    query.bindValue(":price", ticket.price);
-
+    bindQueryForTickets(query, ticket);
     return query.exec();
 }
 
+bool Database::deleteTicketFromDatabase(const Ticket& ticket){
+    QSqlQuery query;
+    query.prepare("DELETE FROM Tickets "
+                  "WHERE passenger_id = :passenger_id "
+                  "AND plane_id = :plane_id "
+                  "AND departure_city = :departure_city "
+                  "AND arrival_city = :arrival_city "
+                  "AND departure_time = :departure_time "
+                  "AND arrival_time = :arrival_time "
+                  "AND seat_number = :seat_number "
+                  "AND price = :price");
 
+    bindQueryForTickets(query, ticket);
+    return query.exec();
+}
+
+void Database::bindQueryForTickets(QSqlQuery& query, const Ticket& ticket){
+    query.bindValue(":passenger_id", ticket.getPassengerID());
+    query.bindValue(":plane_id", ticket.getPlaneID());
+    query.bindValue(":departure_city", ticket.getDepartureCity());
+    query.bindValue(":arrival_city", ticket.getArrivalCity());
+    query.bindValue(":departure_time", ticket.getDepartureTime().toString("yyyy-MM-dd HH:mm:ss"));
+    query.bindValue(":arrival_time", ticket.getArrivalTime().toString("yyyy-MM-dd HH:mm:ss"));
+    query.bindValue(":seat_number", ticket.getSeatNumber());
+    query.bindValue(":price", ticket.getPrice());
+}
+
+bool Database::addPlaneToDatabase(const Plane& plane){
+    QSqlQuery query;
+    query.prepare("INSERT INTO Planes (model, airline, capacity)"
+                  "VALUES (:model, :airline, :capacity)");
+
+
+    bindQueryForPlanes(query, plane);
+    return query.exec();
+}
+
+bool Database::deletePlaneFromDatabase(const Plane& plane){
+    QSqlQuery query;
+    query.prepare("DELETE FROM Planes "
+                  "WHERE model = :model "
+                  "AND airline = :airline "
+                  "AND capacity = :capacity");
+
+    bindQueryForPlanes(query, plane);
+    return query.exec();
+}
+
+void Database::bindQueryForPlanes(QSqlQuery& query, const Plane& plane){
+    query.bindValue(":model", plane.getModel());
+    query.bindValue(":airline", plane.getAirline());
+    query.bindValue(":capacity", plane.getCapacity());
+}

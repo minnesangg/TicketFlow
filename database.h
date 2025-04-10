@@ -25,6 +25,7 @@
 #include <QDebug>
 #include <QComboBox>
 #include "ticket.h"
+#include "plane.h"
 
 /**
  * @brief Database schema for airline ticket management.
@@ -127,6 +128,66 @@ public:
      * @return true if the ticket was successfully added, otherwise false.
      */
     bool addTicketToDatabase(const Ticket& ticket);
+
+    /**
+     * @brief Deletes a ticket from the database.
+     *
+     * Removes a ticket record from the Tickets table that matches all fields of the provided Ticket object.
+     *
+     * @param ticket The Ticket object containing the details of the ticket to delete.
+     * @return true if the deletion was successful, false otherwise.
+     *
+     * @note All fields must exactly match for the ticket to be deleted.
+     *       If no matching ticket is found, the method will still return true, but no row will be affected.
+     */
+    bool deleteTicketFromDatabase(const Ticket& ticket);
+
+    /**
+     * @brief Binds the Ticket object values to the SQL query for execution.
+     *
+     * This method binds the attributes of the provided Ticket object to the corresponding SQL query placeholders
+     * for insertion or deletion operations in the Tickets table.
+     *
+     * @param query The QSqlQuery object to bind the values to.
+     * @param ticket The Ticket object whose values will be bound to the query.
+     */
+    void bindQueryForTickets(QSqlQuery& query, const Ticket& ticket);
+
+    /**
+     * @brief Adds a new plane record to the database.
+     *
+     * This method inserts a new plane record into the `Planes` table in the database.
+     * The plane data (model, airline, and capacity) are bound to the SQL query
+     * using the `bindQueryForPlanes` method and then executed.
+     *
+     * @param plane The Plane object containing the data to be inserted into the database.
+     * @return `true` if the query was successfully executed and the plane was added, `false` otherwise.
+     */
+    bool addPlaneToDatabase(const Plane& plane);
+
+    /**
+     * @brief Deletes a plane record from the database.
+     *
+     * This method deletes a plane record from the `Planes` table in the database.
+     * The plane to be deleted is identified by its model, airline, and capacity, which
+     * are bound to the SQL query using the `bindQueryForPlanes` method before execution.
+     *
+     * @param plane The Plane object identifying the plane to be deleted.
+     * @return `true` if the query was successfully executed and the plane was deleted, `false` otherwise.
+     */
+    bool deletePlaneFromDatabase(const Plane& plane);
+
+    /**
+     * @brief Binds plane data to the SQL query.
+     *
+     * This method binds the plane data (model, airline, and capacity) from the `Plane` object
+     * to the provided SQL query using named placeholders. This allows the query to be executed
+     * with the plane-specific data.
+     *
+     * @param query The QSqlQuery object that will be prepared and executed with the bound data.
+     * @param plane The Plane object containing the data to be bound to the query.
+     */
+    void bindQueryForPlanes(QSqlQuery& query, const Plane& plane);
 
 private:
     /**

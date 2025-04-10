@@ -20,10 +20,11 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
-#include <QDialog>
 #include "database.h"
-#include <QString>
 #include "ticket.h"
+#include "plane.h"
+#include <QString>
+#include <QDialog>
 #include <QVector>
 #include <QDebug>
 
@@ -73,10 +74,43 @@ private slots:
      */
     void on_addTicketButton_clicked();
 
+    /**
+     * @brief Handles the ticket deletion process when the delete button is clicked.
+     *
+     * Reads input fields, validates them, and attempts to delete the corresponding ticket from the database.
+     * Displays a success or error message in the status bar based on the operation result.
+     *
+     * @note If any input field is empty, the deletion will not be attempted and a warning will be shown.
+     */
+    void on_deleteTicketButton_clicked();
+
+    /**
+     * @brief Slot for handling the "Add Plane" button click event.
+     *
+     * This method is triggered when the "Add Plane" button is clicked. It checks if the necessary fields
+     * (model, airline, and capacity) are filled. If they are, it attempts to add the plane to the database.
+     * A success or failure message is displayed on the status bar accordingly.
+     *
+     * @note If any of the fields are not filled, an error message is shown prompting the user to fill all lines.
+     */
+    void on_addPlaneButton_clicked();
+
+    /**
+     * @brief Slot for handling the "Delete Plane" button click event.
+     *
+     * This method is triggered when the "Delete Plane" button is clicked. It checks if the necessary fields
+     * (model, airline, and capacity) are filled. If they are, it attempts to delete the plane from the database.
+     * A success or failure message is displayed on the status bar accordingly.
+     *
+     * @note If any of the fields are not filled, an error message is shown prompting the user to fill all lines.
+     */
+    void on_deletePlaneButton_clicked();
+
 private:
     Ui::Manager *ui; ///< Pointer to the user interface of the manager window.
     Database db; ///< Manages interactions with the database.
     Ticket ticket; ///< Holds ticket details.
+    Plane plane; ///< Holds plane details.
     QVector<Ticket> tickets; ///< List of tickets.
 
     /**
@@ -101,6 +135,30 @@ private:
      * This includes passenger, plane, departure/arrival details, and pricing.
      */
     void setTicketOptions();
+
+    /**
+     * @brief Sets the plane options based on user input.
+     *
+     * This method retrieves the values from the UI fields (model, airline, and capacity) and sets them in the
+     * `plane` object. This data will later be used for adding or deleting the plane from the database.
+     */
+    void setPlaneOptions();
+
+    /**
+     * @brief Clears the status bar message after a delay.
+     *
+     * Clears the text in the status bar line edit 3 seconds after being triggered.
+     */
+    void clearStatusBar();
+
+    /**
+     * @brief Checks if all required input fields are filled.
+     *
+     * Iterates through specific QLineEdit fields and verifies that none are empty.
+     *
+     * @return true if all fields are filled, false otherwise.
+     */
+    bool ifLineFilled(QVector<QLineEdit*> lines);
 };
 
 #endif // MANAGER_H

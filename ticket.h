@@ -16,7 +16,6 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-
 #ifndef TICKET_H
 #define TICKET_H
 
@@ -41,6 +40,14 @@
  * - `setArrivalCity(QString arrivalCity)`: Sets the arrival city for the flight.
  * - `setDepartureTime(QDateTime departureTime)`: Sets the departure time for the flight.
  * - `setArrivalTime(QDateTime arrivalTime)`: Sets the arrival time for the flight.
+ * - `getPassengerID()`: Gets the ID of the passenger.
+ * - `getPlaneID()`: Gets the ID of the plane.
+ * - `getPrice()`: Gets the price of the ticket.
+ * - `getSeatNumber()`: Gets the seat number for the ticket.
+ * - `getDepartureCity()`: Gets the departure city for the flight.
+ * - `getArrivalCity()`: Gets the arrival city for the flight.
+ * - `getDepartureTime()`: Gets the departure time for the flight.
+ * - `getArrivalTime()`: Gets the arrival time for the flight.
  *
  * Attributes:
  * - `departureCity`: The city from which the flight departs.
@@ -79,13 +86,13 @@ public:
      * @brief Sets the price for the ticket.
      * @param price The price of the ticket.
      */
-    void setPrice(int price);
+    void setPrice(float price);
 
     /**
      * @brief Sets the seat number for the ticket.
      * @param seatNumber The seat number on the flight.
      */
-    void setSeatNumber(int seatNumber);
+    void setSeatNumber(QString seatNumber);
 
     /**
      * @brief Sets the departure city for the ticket.
@@ -111,13 +118,61 @@ public:
      */
     void setArrivalTime(QDateTime arrivalTime);
 
-    // Public member variables for ticket details
+    /**
+     * @brief Gets the passenger ID for the ticket.
+     * @return The ID of the passenger.
+     */
+    int getPassengerID() const;
+
+    /**
+     * @brief Gets the plane ID for the ticket.
+     * @return The ID of the plane.
+     */
+    int getPlaneID() const;
+
+    /**
+     * @brief Gets the price for the ticket.
+     * @return The price of the ticket.
+     */
+    float getPrice() const;
+
+    /**
+     * @brief Gets the seat number for the ticket.
+     * @return The seat number on the flight.
+     */
+    QString getSeatNumber() const;
+
+    /**
+     * @brief Gets the departure city for the ticket.
+     * @return The city of departure.
+     */
+    QString getDepartureCity() const;
+
+    /**
+     * @brief Gets the arrival city for the ticket.
+     * @return The city of arrival.
+     */
+    QString getArrivalCity() const;
+
+    /**
+     * @brief Gets the departure time for the ticket.
+     * @return The date and time of departure.
+     */
+    QDateTime getDepartureTime() const;
+
+    /**
+     * @brief Gets the arrival time for the ticket.
+     * @return The date and time of arrival.
+     */
+    QDateTime getArrivalTime() const;
+
+private:
     QString departureCity; ///< The city from which the flight departs.
     QString arrivalCity; ///< The city where the flight arrives.
     QDateTime departureTime; ///< The date and time of departure.
     QDateTime arrivalTime; ///< The date and time of arrival.
-    int price; ///< The price of the ticket.
-    int seatNumber; ///< The seat number assigned to the passenger.
+    QString seatNumber; ///< The seat number assigned to the passenger.
+    float price; ///< The price of the ticket.
     int ticketID; ///< The unique ID of the ticket.
     int passengerID; ///< The ID of the passenger.
     int planeID; ///< The ID of the plane.

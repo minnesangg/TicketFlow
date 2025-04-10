@@ -28,11 +28,11 @@ void Ticket::setPlaneID(int planeID){
     this->planeID = planeID;
 }
 
-void Ticket::setPrice(int price){
+void Ticket::setPrice(float price){
     this->price = price;
 }
 
-void Ticket::setSeatNumber(int seatNumber){
+void Ticket::setSeatNumber(QString seatNumber){
     this->seatNumber = seatNumber;
 }
 
@@ -50,4 +50,36 @@ void Ticket::setDepartureTime(QDateTime departureTime){
 
 void Ticket::setArrivalTime(QDateTime arrivalTime){
     this->arrivalTime = arrivalTime;
+}
+
+int Ticket::getPassengerID() const {
+    return passengerID;
+}
+
+int Ticket::getPlaneID() const {
+    return planeID;
+}
+
+float Ticket::getPrice() const {
+    return price;
+}
+
+QString Ticket::getSeatNumber() const {
+    return seatNumber;
+}
+
+QString Ticket::getDepartureCity() const {
+    return departureCity;
+}
+
+QString Ticket::getArrivalCity() const {
+    return arrivalCity;
+}
+
+QDateTime Ticket::getDepartureTime() const {
+    return departureTime;
+}
+
+QDateTime Ticket::getArrivalTime() const {
+    return arrivalTime;
 }

@@ -159,3 +159,60 @@ void Database::bindQueryForPlanes(QSqlQuery& query, const Plane& plane){
     query.bindValue(":airline", plane.getAirline());
     query.bindValue(":capacity", plane.getCapacity());
 }
+
+bool Database::addPassengerToDatabase(const Passenger& passenger){
+    QSqlQuery query;
+    query.prepare("INSERT INTO Passengers (first_name, last_name, birth_date, email, phone_number) "
+                  "VALUES (:first_name, :last_name, :birth_date, :email, :phone_number)");
+
+    bindQueryForPassengers(query, passenger);
+    return query.exec();
+}
+
+bool Database::deletePassengerFromDatabase(const Passenger& passenger) {
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM tickets WHERE passenger_id = :passenger_id");
+    query.bindValue(":passenger_id", passenger.getId());
+    if (!query.exec()) {
+        qDebug() << "Error checking tickets: " << query.lastError().text();
+        return false;
+    }
+
+    query.next();
+    int ticketCount = query.value(0).toInt();
+
+    if (ticketCount > 0) {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(nullptr, "Warning",
+                                     "This passenger has tickets. Deleting them will remove all their tickets!",
+                                     QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::No) {
+            return false; // Если пользователь отменяет, не удаляем пассажира
+        }
+
+        // Удаляем все билеты перед удалением пассажира
+        query.prepare("DELETE FROM tickets WHERE passenger_id = :passenger_id");
+        query.bindValue(":passenger_id", passenger.getId());
+        if (!query.exec()) {
+            qDebug() << "Error deleting tickets: " << query.lastError().text();
+            return false;
+        }
+    }
+
+    bindQueryForPassengers(query, passenger);
+    if (!query.exec()) {
+        qDebug() << "Database error on delete:" << query.lastError().text();
+        return false;
+    }
+
+    return true;
+}
+void Database::bindQueryForPassengers(QSqlQuery& query, const Passenger& passenger){
+    query.bindValue(":first_name", passenger.getfirstName());
+    query.bindValue(":last_name", passenger.getLastName());
+    query.bindValue(":birth_date", passenger.getBirthDate().toString("yyyy-MM-dd"));
+    query.bindValue(":email", passenger.getEmail());
+    query.bindValue(":phone_number", passenger.getPhoneNumber());
+}
+

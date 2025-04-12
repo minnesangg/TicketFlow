@@ -22,10 +22,12 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
+#include <QMessageBox>
 #include <QDebug>
 #include <QComboBox>
 #include "ticket.h"
 #include "plane.h"
+#include "passenger.h"
 
 /**
  * @brief Database schema for airline ticket management.
@@ -189,6 +191,14 @@ public:
      */
     void bindQueryForPlanes(QSqlQuery& query, const Plane& plane);
 
+
+    void bindQueryForPassengers(QSqlQuery& query, const Passenger& passenger);
+
+    bool addPassengerToDatabase(const Passenger& passenger);
+
+    bool deletePassengerFromDatabase(const Passenger& passenger);
+
+
 private:
     /**
      * @brief Connects to the PostgreSQL database.
@@ -200,6 +210,7 @@ private:
     bool connectToDB();
 
     QSqlDatabase db; ///< Database connection instance.
+
 };
 
 #endif // DATABASE_H

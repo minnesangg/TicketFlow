@@ -18,7 +18,6 @@
 
 #include "manager.h"
 #include "ui_manager.h"
-#include <QTimer>
 
 Manager::Manager(QWidget *parent)
     : QDialog(parent)
@@ -27,6 +26,11 @@ Manager::Manager(QWidget *parent)
     ui->setupUi(this);
     listWidgetSettings();
     loadInfo();
+
+    QVector<QLineEdit*> ticketsLines = {ui->arrivalCityLine, ui->arrivalTimeLine, ui->departureCityLine, ui->departureTimeLine, ui->priceLine,
+                                  ui->seatNumberLine};
+    QVector<QLineEdit*> planesLines = {ui->modelLine, ui->airlineLine, ui->capacityLine};
+    QVector<QLineEdit*> passengersLines = {ui->firstNameLine, ui->lastNameLine, ui->emailLine, ui->birthDateLine, ui->phoneNumberLine};
 }
 
 Manager::~Manager()
@@ -75,10 +79,8 @@ void Manager::loadInfo(){
 
 void Manager::on_addTicketButton_clicked()
 {
-    QVector<QLineEdit*> lines = {ui->arrivalCityLine, ui->arrivalTimeLine, ui->departureCityLine, ui->departureTimeLine, ui->priceLine,
-                                  ui->seatNumberLine};
     setTicketOptions();
-    if(ifLineFilled(lines)){
+    if(ifLineFilled(ticketsLines)){
         if (db.addTicketToDatabase(ticket)) {
             ui->statusBarLine->setText("Ticket added successfully!");
             clearStatusBar();
@@ -94,10 +96,8 @@ void Manager::on_addTicketButton_clicked()
 
 void Manager::on_deleteTicketButton_clicked()
 {
-    QVector<QLineEdit*> lines = {ui->arrivalCityLine, ui->arrivalTimeLine, ui->departureCityLine, ui->departureTimeLine, ui->priceLine,
-                                  ui->seatNumberLine};
     setTicketOptions();
-    if(ifLineFilled(lines)){
+    if(ifLineFilled(ticketsLines)){
         if(db.deleteTicketFromDatabase(ticket)){
             ui->statusBarLine->setText("Ticket succesfully deleted!");
             clearStatusBar();
@@ -150,10 +150,9 @@ bool Manager::ifLineFilled(QVector<QLineEdit*> lines){
 
 void Manager::on_addPlaneButton_clicked()
 {
-    QVector<QLineEdit*> lines = {ui->modelLine, ui->airlineLine, ui->capacityLine};
     setPlaneOptions();
 
-    if(ifLineFilled(lines)){
+    if(ifLineFilled(planesLines)){
         if(db.addPlaneToDatabase(plane)){
             ui->statusBarLine->setText("Plane added succesfully!");
             clearStatusBar();
@@ -169,10 +168,9 @@ void Manager::on_addPlaneButton_clicked()
 
 void Manager::on_deletePlaneButton_clicked()
 {
-    QVector<QLineEdit*> lines = {ui->modelLine, ui->airlineLine, ui->capacityLine};
     setPlaneOptions();
 
-    if(ifLineFilled(lines)){
+    if(ifLineFilled(planesLines)){
         if(db.deletePlaneFromDatabase(plane)){
             ui->statusBarLine->setText("Plane deleted succesfully!");
             clearStatusBar();
@@ -192,5 +190,51 @@ void Manager::setPlaneOptions(){
     plane.setCapacity(ui->capacityLine->text().toInt());
 }
 
+void Manager::on_addPassButton_clicked()
+{
+    setPassengerOptions();
+
+    if(ifLineFilled(passengersLines)){
+        if(db.addPassengerToDatabase(passenger)){
+            ui->statusBarLine->setText("Passenger added succesfully!");
+            clearStatusBar();
+        } else {
+            ui->statusBarLine->setText("Failed to add passenger! Database Error.");
+            clearStatusBar();
+        }
+    } else {
+        ui->statusBarLine->setText("Failed to add passenger. Fill all lines!");
+        clearStatusBar();
+    }
+}
 
 
+void Manager::on_deletePassButton_clicked()
+{
+    setPassengerOptions();
+
+    if(ifLineFilled(passengersLines)){
+        if(db.deletePassengerFromDatabase(passenger)){
+            ui->statusBarLine->setText("Passenger deleted succesfully!");
+            clearStatusBar();
+        } else {
+            ui->statusBarLine->setText("Failed to delete passenger! Database Error.");
+            clearStatusBar();
+        }
+    } else {
+        ui->statusBarLine->setText("Failed to delete passenger. Fill all lines!");
+        clearStatusBar();
+    }
+}
+
+void Manager::setPassengerOptions(){
+    QString birthDateString = ui->birthDateLine->text();
+    QString format = "yyyy-MM-dd";
+    QDate birthDate = QDate::fromString(birthDateString, format);
+
+    passenger.setFirstName(ui->firstNameLine->text());
+    passenger.setLastName(ui->lastNameLine->text());
+    passenger.setEmail(ui->emailLine->text());
+    passenger.setBirthDate(birthDate);
+    passenger.setPhoneNumber(ui->phoneNumberLine->text());
+}

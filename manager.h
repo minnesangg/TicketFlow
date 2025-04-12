@@ -23,10 +23,12 @@
 #include "database.h"
 #include "ticket.h"
 #include "plane.h"
+#include "passenger.h"
 #include <QString>
 #include <QDialog>
 #include <QVector>
 #include <QDebug>
+#include <QTimer>
 
 namespace Ui {
 class Manager;
@@ -106,13 +108,22 @@ private slots:
      */
     void on_deletePlaneButton_clicked();
 
+    void on_deletePassButton_clicked();
+
+    void on_addPassButton_clicked();
+
 private:
     Ui::Manager *ui; ///< Pointer to the user interface of the manager window.
     Database db; ///< Manages interactions with the database.
     Ticket ticket; ///< Holds ticket details.
     Plane plane; ///< Holds plane details.
+    Passenger passenger; ///< Holds passenger details.
     QVector<Ticket> tickets; ///< List of tickets.
 
+
+    QVector<QLineEdit*> ticketsLines;
+    QVector<QLineEdit*> planesLines;
+    QVector<QLineEdit*> passengersLines;
     /**
      * @brief Configures the list widget for the manager window.
      * Adds navigation items to switch between different management pages (tickets, passengers, planes).
@@ -143,6 +154,8 @@ private:
      * `plane` object. This data will later be used for adding or deleting the plane from the database.
      */
     void setPlaneOptions();
+
+    void setPassengerOptions();
 
     /**
      * @brief Clears the status bar message after a delay.

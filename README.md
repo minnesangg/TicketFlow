@@ -45,6 +45,59 @@ For detailed documentation visit [TicketFlow Documentation](https://minnesangg.g
 1. This project is licensed under the **GNU General Public License v3.0 (GPLv3)**.  
 You are free to use, modify, and distribute this software, but any derivative work must also be released under the GPLv3 license.
 
+### Installation & Setup
+
+#### Prerequisites:
+
+- PostgreSQL database server (version 12 or higher recommended)
+- Basic database administration knowledge
+
+#### Database Connection:
+
+Default connection parameters:
+
+- **Host**: localhost
+- **Port**: 5432
+- **Database name**: ticketflowdb
+- **Username**: postgres
+- **Password**: postgres
+
+#### Initial Setup:
+
+1. Run the SQL scripts from `creatingTables.sql` to create the database schema.
+
+---
+
+### Database Structure
+
+The system consists of three main tables:
+
+- **Passengers**: Stores passenger information.
+- **Planes**: Contains aircraft data.
+- **Tickets**: Manages flight tickets and their relations.
+
+---
+
+### Usage
+
+After successful setup, you can:
+
+- Add new passengers and planes.
+- Create, update, and cancel tickets.
+- Generate reports on flight occupancy.
+- Track passenger flight history.
+
+---
+
+### Troubleshooting
+
+Common issues:
+
+- **Connection problems**: Verify PostgreSQL service is running.
+- **Permission errors**: Check database user privileges.
+- **Schema errors**: Ensure all tables were created correctly.
+
+
 ## 🌟 Authors
 
 Developed by **Minnesang**.  
@@ -93,6 +146,59 @@ Contributions are welcome!
 - **Язык**: C++
 - **Фреймворк**: Qt
 - **База данных**: Postgre SQL(Beekeeper Studio)
+
+### Установка и настройка
+
+#### Требования:
+
+- Сервер PostgreSQL (рекомендуется версия 12 или выше)
+- Базовые знания администрирования БД
+
+#### Подключение к базе данных:
+
+Параметры подключения по умолчанию:
+
+- **Хост**: localhost
+- **Порт**: 5432
+- **Имя базы данных**: ticketflowdb
+- **Пользователь**: postgres
+- **Пароль**: postgres
+
+#### Первоначальная настройка:
+
+1. Выполните SQL-скрипты из файла `creatingTables.sql` для создания структуры БД.
+
+---
+
+### Структура базы данных
+
+Система состоит из трех основных таблиц:
+
+- **Passengers**: Хранит информацию о пассажирах.
+- **Planes**: Содержит данные о самолетах.
+- **Tickets**: Управляет билетами и их связями.
+
+---
+
+### Использование
+
+После успешной настройки вы можете:
+
+- Добавлять новых пассажиров и самолеты.
+- Создавать, обновлять и отменять билеты.
+- Формировать отчеты о загрузке рейсов.
+- Отслеживать историю перелетов пассажиров.
+
+---
+
+### Решение проблем
+
+Частые проблемы:
+
+- **Проблемы с подключением**: Убедитесь, что служба PostgreSQL запущена.
+- **Ошибки прав доступа**: Проверьте привилегии пользователя БД.
+- **Ошибки структуры**: Убедитесь, что все таблицы созданы правильно.
+
 
 ## 📜 Лицензия и сторонние компоненты
 

@@ -34,14 +34,17 @@
  * - `setModel(QString model)`: Sets the model of the airplane (e.g., "Boeing 737").
  * - `setAirline(QString airline)`: Sets the airline operating the airplane (e.g., "American Airlines").
  * - `setCapacity(int capacity)`: Sets the seating capacity of the airplane.
+ * - `setPlaneID(int ID)`: Sets the unique ID of the plane.
  * - `getModel()`: Gets the model of the airplane.
  * - `getAirline()`: Gets the airline operating the airplane.
  * - `getCapacity()`: Gets the seating capacity of the airplane.
+ * - `getPlaneID()`: Gets the unique ID of the airplane.
  *
  * Attributes:
  * - `model`: The model of the airplane (e.g., "Boeing 737").
  * - `airline`: The airline operating the airplane (e.g., "American Airlines").
  * - `capacity`: The seating capacity of the airplane, representing the maximum number of passengers it can carry.
+ * - `ID`: The unique identifier for the plane.
  */
 class Plane
 {
@@ -75,6 +78,16 @@ public:
     void setCapacity(int capacity);
 
     /**
+     * @brief Sets the unique ID of the plane.
+     *
+     * This method sets the unique identifier (ID) for the plane object. The ID is used to identify
+     * the plane in the database or within the program.
+     *
+     * @param ID The unique ID to assign to the plane.
+     */
+    void setPlaneID(int ID);
+
+    /**
      * @brief Retrieves the model of the plane.
      *
      * @return The model of the plane (e.g., "Boeing 737").
@@ -95,6 +108,14 @@ public:
      */
     int getCapacity() const;
 
+    /**
+     * @brief Gets the unique ID of the plane.
+     *
+     * This method returns the unique identifier (ID) of the plane object. The ID is used to identify
+     * the plane in the database or within the program.
+     *
+     * @return int The unique ID of the plane.
+     */
     int getPlaneID() const;
 
 private:

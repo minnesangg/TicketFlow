@@ -168,62 +168,20 @@ void Manager::on_addPlaneButton_clicked() {
 void Manager::on_deletePlaneButton_clicked() {
     setPlaneOptions();
 
-    if (ifLineFilled(planesLines)) {
-        QSqlQuery query;
-        query.prepare("SELECT COUNT(*) FROM Tickets WHERE plane_id = (SELECT id FROM Planes WHERE model = :model AND airline = :airline "
-                      "AND capacity = :capacity)");
-        query.bindValue(":model", plane.getModel());
-        query.bindValue(":airline", plane.getAirline());
-        query.bindValue(":capacity", plane.getCapacity());
-
-        if (!query.exec()) {
-            ui->statusBarLine->setText("Error checking tickets!");
-            clearStatusBar();
-            return;
-        }
-
-        query.next();
-        int ticketCount = query.value(0).toInt();
-
-        if (ticketCount > 0) {
-            QMessageBox::StandardButton reply;
-            reply = QMessageBox::warning(nullptr, "Warning",
-                                         "This plane has associated tickets. Deleting them will remove all these tickets. Do you want to continue?",
-                                         QMessageBox::Yes | QMessageBox::No);
-
-            if (reply == QMessageBox::No) {
-                return;
-            }
-
-            query.prepare("DELETE FROM Tickets WHERE plane_id = (SELECT id FROM Planes WHERE model = :model AND airline = :airline AND capacity = :capacity)");
-            query.bindValue(":model", plane.getModel());
-            query.bindValue(":airline", plane.getAirline());
-            query.bindValue(":capacity", plane.getCapacity());
-
-            if (!query.exec()) {
-                ui->statusBarLine->setText("Error deleting tickets!");
-                clearStatusBar();
-                return;
-            }
-        }
-
-        query.prepare("DELETE FROM Planes WHERE model = :model AND airline = :airline AND capacity = :capacity");
-        query.bindValue(":model", plane.getModel());
-        query.bindValue(":airline", plane.getAirline());
-        query.bindValue(":capacity", plane.getCapacity());
-
-        if (!query.exec()) {
-            ui->statusBarLine->setText("Failed to delete plane! Database Error.");
-            clearStatusBar();
-            return;
-        }
-
-        ui->statusBarLine->setText("Plane deleted successfully!");
-        clearStatusBar();
-    } else {
+    if (!ifLineFilled(planesLines)) {
         ui->statusBarLine->setText("Failed to delete plane. Fill all lines!");
         clearStatusBar();
+        return;
     }
+
+    if (!db.deletePlaneFromDatabase(plane)) {
+        ui->statusBarLine->setText("Failed to delete plane! Database Error.");
+        clearStatusBar();
+        return;
+    }
+
+    ui->statusBarLine->setText("Plane deleted successfully!");
+    clearStatusBar();
 }
 
 void Manager::setPlaneOptions(){
@@ -252,70 +210,20 @@ void Manager::on_addPassButton_clicked() {
 void Manager::on_deletePassButton_clicked() {
     setPassengerOptions();
 
-    if (ifLineFilled(passengersLines)) {
-        QSqlQuery query;
-        query.prepare("SELECT COUNT(*) FROM Tickets WHERE passenger_id = (SELECT id FROM Passengers WHERE first_name = :first_name"
-                      " AND last_name = :last_name AND birth_date = :birth_date AND email = :email AND phone_number = :phone_number)");
-        query.bindValue(":first_name", passenger.getfirstName());
-        query.bindValue(":last_name", passenger.getLastName());
-        query.bindValue(":birth_date", passenger.getBirthDate());
-        query.bindValue(":email", passenger.getEmail());
-        query.bindValue(":phone_number", passenger.getPhoneNumber());
-
-        if (!query.exec()) {
-            ui->statusBarLine->setText("Error checking tickets!");
-            clearStatusBar();
-            return;
-        }
-
-        query.next();
-        int ticketCount = query.value(0).toInt();
-
-        if (ticketCount > 0) {
-            QMessageBox::StandardButton reply;
-            reply = QMessageBox::warning(nullptr, "Warning",
-                                         "This plane has associated tickets. Deleting them will remove all these tickets. Do you want to continue?",
-                                         QMessageBox::Yes | QMessageBox::No);
-
-            if (reply == QMessageBox::No) {
-                return;
-            }
-
-            query.prepare("DELETE FROM Tickets WHERE passenger_id = (SELECT id FROM Passengers WHERE first_name = :first_name"
-                          " AND last_name = :last_name AND birth_date = :birth_date AND email = :email AND phone_number = :phone_number)");
-            query.bindValue(":first_name", passenger.getfirstName());
-            query.bindValue(":last_name", passenger.getLastName());
-            query.bindValue(":birth_date", passenger.getBirthDate());
-            query.bindValue(":email", passenger.getEmail());
-            query.bindValue(":phone_number", passenger.getPhoneNumber());
-
-            if (!query.exec()) {
-                ui->statusBarLine->setText("Error deleting tickets!");
-                clearStatusBar();
-                return;
-            }
-        }
-
-        query.prepare("DELETE FROM Passengers WHERE first_name = :first_name"
-                      " AND last_name = :last_name AND birth_date = :birth_date AND email = :email AND phone_number = :phone_number");
-        query.bindValue(":first_name", passenger.getfirstName());
-        query.bindValue(":last_name", passenger.getLastName());
-        query.bindValue(":birth_date", passenger.getBirthDate());
-        query.bindValue(":email", passenger.getEmail());
-        query.bindValue(":phone_number", passenger.getPhoneNumber());
-
-        if (!query.exec()) {
-            ui->statusBarLine->setText("Failed to delete passenger! Database Error.");
-            clearStatusBar();
-            return;
-        }
-
-        ui->statusBarLine->setText("Passenger deleted successfully!");
-        clearStatusBar();
-    } else {
+    if (!ifLineFilled(passengersLines)) {
         ui->statusBarLine->setText("Failed to delete passenger. Fill all lines!");
         clearStatusBar();
+        return;
     }
+
+    if (!db.deletePassengerFromDatabase(passenger)) {
+        ui->statusBarLine->setText("Failed to delete passenger! Database Error.");
+        clearStatusBar();
+        return;
+    }
+
+    ui->statusBarLine->setText("Passenger deleted successfully!");
+    clearStatusBar();
 }
 
 void Manager::setPassengerOptions(){

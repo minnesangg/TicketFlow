@@ -32,6 +32,10 @@ void Plane::setCapacity(int capacity){
     this->capacity = capacity;
 }
 
+void Plane::setPlaneID(int ID){
+    this->ID = ID;
+}
+
 QString Plane::getModel() const{
     return model;
 }

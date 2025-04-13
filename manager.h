@@ -44,12 +44,21 @@ class Manager;
  *
  * Private Slots:
  * - `on_addTicketButton_clicked()`: Handles the addition of a new ticket to the database.
+ * - `on_deleteTicketButton_clicked()`: Handles ticket deletion from the database.
+ * - `on_addPlaneButton_clicked()`: Adds a new plane to the database.
+ * - `on_deletePlaneButton_clicked()`: Deletes a plane from the database.
+ * - `on_deletePassButton_clicked()`: Handles the deletion of a passenger from the database.
+ * - `on_addPassButton_clicked()`: Handles the addition of a new passenger to the database.
  *
  * Private Methods:
  * - `listWidgetSettings()`: Configures the list widget for navigation between different management pages.
  * - `changePage(int index)`: Changes the page based on the user's selection in the list widget.
  * - `loadInfo()`: Loads data from the database into combo boxes for passengers and planes.
  * - `setTicketOptions()`: Sets the ticket details (e.g., passenger, plane, departure time) for a new ticket.
+ * - `setPlaneOptions()`: Sets the plane options (e.g., model, airline, seating capacity).
+ * - `setPassengerOptions()`: Sets the passenger options (e.g., first name, last name, birth date, email, phone).
+ * - `clearStatusBar()`: Clears the status bar message after a delay.
+ * - `ifLineFilled(QVector<QLineEdit*> lines)`: Checks if all required input fields are filled.
  */
 class Manager : public QDialog
 {
@@ -108,8 +117,21 @@ private slots:
      */
     void on_deletePlaneButton_clicked();
 
+    /**
+     * @brief Slot triggered when the "Delete Passenger" button is clicked.
+     *
+     * This method collects input from the passenger fields, checks if all required fields are filled,
+     * verifies if the passenger has associated tickets, prompts for confirmation if needed,
+     * and attempts to delete the passenger from the database. Updates the status bar accordingly.
+     */
     void on_deletePassButton_clicked();
 
+    /**
+     * @brief Slot triggered when the "Add Passenger" button is clicked.
+     *
+     * This method collects input from the passenger fields, checks if all required fields are filled,
+     * and attempts to add a new passenger to the database. Updates the status bar based on the operation result.
+     */
     void on_addPassButton_clicked();
 
 private:
@@ -118,12 +140,32 @@ private:
     Ticket ticket; ///< Holds ticket details.
     Plane plane; ///< Holds plane details.
     Passenger passenger; ///< Holds passenger details.
-    QVector<Ticket> tickets; ///< List of tickets.
+    QVector<Ticket> tickets; ///< List of tickets. 
 
-
+    /**
+     * @brief A QVector containing the line edit fields for ticket information.
+     *
+     * This QVector holds pointers to QLineEdit widgets used to input ticket data, including arrival city,
+     * arrival time, departure city, departure time, price, and seat number.
+     */
     QVector<QLineEdit*> ticketsLines;
+
+    /**
+     * @brief A QVector containing the line edit fields for plane information.
+     *
+     * This QVector holds pointers to QLineEdit widgets used to input plane data, including the model,
+     * airline, and seating capacity.
+     */
     QVector<QLineEdit*> planesLines;
+
+    /**
+     * @brief A QVector containing the line edit fields for passenger information.
+     *
+     * This QVector holds pointers to QLineEdit widgets used to input passenger data, including the first name,
+     * last name, email, birth date, and phone number.
+     */
     QVector<QLineEdit*> passengersLines;
+
     /**
      * @brief Configures the list widget for the manager window.
      * Adds navigation items to switch between different management pages (tickets, passengers, planes).
@@ -155,6 +197,13 @@ private:
      */
     void setPlaneOptions();
 
+    /**
+     * @brief Sets the options for the passenger object based on the input from the GUI.
+     *
+     * This function retrieves the text input from the user in the QLineEdit fields related to the passenger's
+     * first name, last name, birth date, email, and phone number, and sets the corresponding properties in
+     * the `passenger` object. The birth date is parsed from the text using the format "yyyy-MM-dd".
+     */
     void setPassengerOptions();
 
     /**

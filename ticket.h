@@ -34,8 +34,8 @@
  * - `Ticket()`: Constructor for initializing a ticket.
  * - `setPassengerID(int passengerID)`: Sets the ID of the passenger associated with the ticket.
  * - `setPlaneID(int planeID)`: Sets the ID of the plane associated with the ticket.
- * - `setPrice(int price)`: Sets the price of the ticket.
- * - `setSeatNumber(int seatNumber)`: Sets the seat number for the ticket.
+ * - `setPrice(float price)`: Sets the price of the ticket.
+ * - `setSeatNumber(QString seatNumber)`: Sets the seat number for the ticket.
  * - `setDepartureCity(QString departureCity)`: Sets the departure city for the flight.
  * - `setArrivalCity(QString arrivalCity)`: Sets the arrival city for the flight.
  * - `setDepartureTime(QDateTime departureTime)`: Sets the departure time for the flight.
@@ -60,7 +60,6 @@
  * - `passengerID`: The ID of the passenger who owns the ticket.
  * - `planeID`: The ID of the plane for the flight.
  */
-
 class Ticket
 {
 public:

@@ -31,7 +31,7 @@ Database::~Database(){
 bool Database::connectToDB() {
     db = QSqlDatabase::addDatabase("QPSQL");
     db.setHostName("localhost");
-    db.setDatabaseName("postgres");
+    db.setDatabaseName("ticketflowdb");
     db.setUserName("postgres");
     db.setPassword("postgres");
 

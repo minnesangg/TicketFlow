@@ -18,6 +18,12 @@ For detailed documentation visit [TicketFlow Documentation](https://minnesangg.g
 
 ✅ Local storage using **Postgres**.
 
+✅ Add new airline ticket requests to the database.
+
+✅ Delete or archive ticket requests/passengers/planes.
+
+✅ Edit and update existing ticket requests/passengers/planes.
+
 ## 🚀 Future Improvements
 
 🔹 Generate reports based on ticket requests.
@@ -27,12 +33,6 @@ For detailed documentation visit [TicketFlow Documentation](https://minnesangg.g
 🔹 Full documentation via **Doxygen**.
 
 🔹 UI/UX improvements.
-
-🔹 Add new airline ticket requests to the database.
-
-🔹 Edit and update existing ticket requests.
-
-🔹 Delete or archive ticket requests.
 
 ## 🛠️ Technologies
 
@@ -72,6 +72,12 @@ Contributions are welcome!
 
 ✅ Локальное хранение данных через **Postgres**.
 
+✅ Удаление или архивирование заявок/самолетов/пассажиров.
+
+✅ Добавление новых заявок на авиабилеты/самолетов/пассажиров в базу данных.
+
+✅ Редактирование и обновление существующих заявок/самолетов/пассажиров.
+
 ## 🚀 Будущие улучшения
 
 🔹 Генерация отчетов на основе заявок.
@@ -81,12 +87,6 @@ Contributions are welcome!
 🔹 Полная документация через **Doxygen**.
 
 🔹 Улучшение интерфейса пользователя.
-
-🔹 Удаление или архивирование заявок.
-
-🔹 Редактирование и обновление существующих заявок.
-
-🔹 Добавление новых заявок на авиабилеты в базу данных.
 
 ## 🛠️ Технологии
 

@@ -60,9 +60,9 @@ QListWidget::item:selected {
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>320</x>
      <y>20</y>
-     <width>651</width>
+     <width>661</width>
      <height>651</height>
     </rect>
    </property>
@@ -763,7 +763,7 @@ QPushButton:pressed {
     <widget class="QWidget" name="verticalLayoutWidget_4">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>130</y>
        <width>160</width>
        <height>241</height>
@@ -771,7 +771,10 @@ QPushButton:pressed {
      </property>
      <layout class="QVBoxLayout" name="planeLabelLayout">
       <property name="leftMargin">
-       <number>30</number>
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
       </property>
       <item>
        <widget class="QLabel" name="modelLabel">
@@ -780,6 +783,13 @@ QPushButton:pressed {
           <family>Monospace</family>
           <pointsize>-1</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
         </property>
         <property name="text">
          <string>Model</string>
@@ -794,6 +804,13 @@ QPushButton:pressed {
           <pointsize>-1</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
         <property name="text">
          <string>Airline</string>
         </property>
@@ -806,6 +823,13 @@ QPushButton:pressed {
           <family>Monospace</family>
           <pointsize>-1</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
         </property>
         <property name="text">
          <string>Capacity</string>
@@ -820,7 +844,7 @@ QPushButton:pressed {
        <x>160</x>
        <y>110</y>
        <width>471</width>
-       <height>301</height>
+       <height>291</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="linesLayout">
@@ -1023,6 +1047,333 @@ QPushButton:pressed {
      <property name="text">
       <string>PASSENGERS MANAGER</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>520</y>
+       <width>491</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="passengersButtonsLayout">
+      <property name="spacing">
+       <number>20</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="addPassButton">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>17</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #4682b4; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #5a9bd5; 
+}
+
+QPushButton:pressed {
+    background-color: #2e5984; 
+}
+</string>
+        </property>
+        <property name="text">
+         <string>ADD PASSENGER</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deletePassButton">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>17</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #dc143c; 
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+    background-color: #e94b6d;
+}
+
+QPushButton:pressed {
+    background-color: #a60f2d;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>DELETE PASSENGER</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_6">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>120</y>
+       <width>481</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="addPassLinesLayout">
+      <item>
+       <widget class="QLineEdit" name="firstNameLine">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lastNameLine">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="birthDateLine">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="emailLine">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="phoneNumberLine">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>171</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="addPassLabelLayout">
+      <item>
+       <widget class="QLabel" name="firstNameLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>First Name</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lastNameLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Last Name</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="birthDateLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Birth Date</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="emailLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="phoneNumberLabel">
+        <property name="font">
+         <font>
+          <family>Monospace</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 22px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Phone Number</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>

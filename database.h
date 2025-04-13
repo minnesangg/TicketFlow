@@ -22,10 +22,12 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
+#include <QMessageBox>
 #include <QDebug>
 #include <QComboBox>
 #include "ticket.h"
 #include "plane.h"
+#include "passenger.h"
 
 /**
  * @brief Database schema for airline ticket management.
@@ -189,6 +191,85 @@ public:
      */
     void bindQueryForPlanes(QSqlQuery& query, const Plane& plane);
 
+    /**
+     * @brief Checks if there are any tickets associated with the given plane.
+     *
+     * This method queries the database to determine whether any records exist in the Tickets table
+     * for the specified plane ID. If an error occurs during the query execution, it will be logged.
+     *
+     * @param plane The Plane object for which ticket association is checked.
+     * @return true if there are associated tickets, false otherwise.
+     */
+    bool hasTicketsForPlane(const Plane& plane);
+
+    /**
+     * @brief Deletes all tickets associated with the given plane.
+     *
+     * This method removes all entries from the Tickets table that are linked to the specified plane ID.
+     * If the query fails, the error is logged and the method returns false.
+     *
+     * @param plane The Plane object whose associated tickets are to be deleted.
+     * @return true if the deletion was successful, false otherwise.
+     */
+    bool deleteTicketsForPlane(const Plane& plane);
+
+    /**
+     * @brief Adds a new passenger to the database.
+     *
+     * This method inserts a new record into the Passengers table using the provided Passenger object's details.
+     * The query parameters are bound using the bindQueryForPassengers helper method.
+     *
+     * @param passenger The Passenger object containing the data to be inserted.
+     * @return true if the insertion is successful, false otherwise.
+     */
+    bool addPassengerToDatabase(const Passenger& passenger);
+
+    /**
+     * @brief Binds passenger details to a SQL query.
+     *
+     * This helper method binds the Passenger object's fields to the corresponding placeholders in the SQL query.
+     * It is typically used before executing queries involving passenger information.
+     *
+     * @param query The QSqlQuery object where the values will be bound.
+     * @param passenger The Passenger object containing the data to bind.
+     */
+    void bindQueryForPassengers(QSqlQuery& query, const Passenger& passenger);
+
+    /**
+     * @brief Deletes a passenger from the database.
+     *
+     * This method first retrieves the passenger's ID by matching their personal information.
+     * If the passenger has associated tickets, it prompts the user for confirmation and deletes the tickets if agreed.
+     * Finally, it deletes the passenger from the database. If any database operation fails, an error is logged.
+     *
+     * @param passenger The Passenger object representing the passenger to delete.
+     * @return true if the deletion is successful, false otherwise.
+     */
+
+    bool deletePassengerFromDatabase(const Passenger& passenger);
+
+    /**
+     * @brief Deletes all tickets associated with a given passenger.
+     *
+     * This method removes all entries from the Tickets table that are linked to the specified passenger.
+     *
+     * @param passenger The Passenger object whose tickets should be deleted.
+     * @return true if the operation was successful, false otherwise.
+     */
+    bool deleteTicketsForPassenger(const Passenger& passenger);
+
+    /**
+     * @brief Checks if a passenger has associated tickets.
+     *
+     * This method executes a SQL query to determine whether any tickets are linked to the given passenger
+     * in the Tickets table, based on the passenger's ID.
+     *
+     * @param passenger The Passenger object whose associated tickets are being checked.
+     * @return true if the passenger has at least one associated ticket, false otherwise.
+     */
+    bool hasTicketsForPassenger(const Passenger& passenger);
+
+    void reconnectDatabase();
 private:
     /**
      * @brief Connects to the PostgreSQL database.

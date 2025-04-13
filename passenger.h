@@ -14,6 +14,7 @@ public:
     QString getEmail() const;
     QString getPhoneNumber() const;
     QDate getBirthDate() const;
+    int getPassengerID() const;
 
     void setFirstName(QString firstName);
     void setLastName(QString lastName);
@@ -24,6 +25,7 @@ public:
 private:
     QString firstName, lastName, email, phoneNumber;
     QDate birthDate;
+    int ID;
 };
 
 #endif // PASSENGER_H

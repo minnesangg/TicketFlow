@@ -191,6 +191,10 @@ public:
      */
     void bindQueryForPlanes(QSqlQuery& query, const Plane& plane);
 
+    bool hasTicketsForPlane(const Plane& plane);
+
+    bool deleteTicketsForPlane(const Plane& plane);
+
 
     void bindQueryForPassengers(QSqlQuery& query, const Passenger& passenger);
 
@@ -198,6 +202,9 @@ public:
 
     bool deletePassengerFromDatabase(const Passenger& passenger);
 
+    bool deleteTicketsForPassenger(const Passenger& passenger);
+
+    bool hasTicketsForPassenger(const Passenger& passenger);
 
 private:
     /**

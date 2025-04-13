@@ -95,10 +95,12 @@ public:
      */
     int getCapacity() const;
 
+    int getPlaneID() const;
+
 private:
     QString model;    /**< Model of the plane (e.g., "Boeing 737") */
     QString airline;  /**< Airline of the plane (e.g., "American Airlines") */
-    int capacity;     /**< Maximum number of passengers the plane can carry */
+    int capacity, ID;     /**< Maximum number of passengers the plane can carry */
 };
 
 #endif // PLANE_H

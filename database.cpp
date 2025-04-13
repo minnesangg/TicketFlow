@@ -144,13 +144,25 @@ bool Database::addPlaneToDatabase(const Plane& plane){
 }
 
 bool Database::deletePlaneFromDatabase(const Plane& plane){
-    QSqlQuery query;
-    query.prepare("DELETE FROM Planes "
-                  "WHERE model = :model "
-                  "AND airline = :airline "
-                  "AND capacity = :capacity");
+    if (hasTicketsForPlane(plane)){
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(nullptr, "Warning",
+                                     "This plane has associated tickets. Deleting them will remove all related tickets!",
+                                     QMessageBox::Yes | QMessageBox::No);
 
-    bindQueryForPlanes(query, plane);
+        if (reply == QMessageBox::No) {
+            return false;
+        }
+        if (!deleteTicketsForPlane(plane)) {
+            qDebug() << "Failed to delete tickets for the plane!";
+            return false;
+        }
+    }
+
+    QSqlQuery query;
+    query.prepare("DELETE FROM Planes WHERE id = :plane_id");
+    query.bindValue(":plane_id", plane.getPlaneID());
+
     return query.exec();
 }
 
@@ -158,6 +170,26 @@ void Database::bindQueryForPlanes(QSqlQuery& query, const Plane& plane){
     query.bindValue(":model", plane.getModel());
     query.bindValue(":airline", plane.getAirline());
     query.bindValue(":capacity", plane.getCapacity());
+}
+
+bool Database::hasTicketsForPlane(const Plane& plane) {
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM Tickets WHERE plane_id = :plane_id");
+    query.bindValue(":plane_id", plane.getPlaneID());
+
+    if (query.exec() && query.next()) {
+        return query.value(0).toInt() > 0;
+    }
+    qDebug() << "Error checking for tickets: " << query.lastError().text();
+    return false;
+}
+
+bool Database::deleteTicketsForPlane(const Plane& plane) {
+    QSqlQuery query;
+    query.prepare("DELETE FROM Tickets WHERE plane_id = :plane_id");
+    query.bindValue(":plane_id", plane.getPlaneID());
+
+    return query.exec();
 }
 
 bool Database::addPassengerToDatabase(const Passenger& passenger){
@@ -170,44 +202,32 @@ bool Database::addPassengerToDatabase(const Passenger& passenger){
 }
 
 bool Database::deletePassengerFromDatabase(const Passenger& passenger) {
-    QSqlQuery query;
-    query.prepare("SELECT COUNT(*) FROM tickets WHERE passenger_id = :passenger_id");
-    query.bindValue(":passenger_id", passenger.getId());
-    if (!query.exec()) {
-        qDebug() << "Error checking tickets: " << query.lastError().text();
-        return false;
-    }
-
-    query.next();
-    int ticketCount = query.value(0).toInt();
-
-    if (ticketCount > 0) {
+    if (hasTicketsForPassenger(passenger)) {
         QMessageBox::StandardButton reply;
         reply = QMessageBox::warning(nullptr, "Warning",
-                                     "This passenger has tickets. Deleting them will remove all their tickets!",
+                                     "This passenger has associated tickets. Deleting them will remove all related tickets!",
                                      QMessageBox::Yes | QMessageBox::No);
 
         if (reply == QMessageBox::No) {
-            return false; // Если пользователь отменяет, не удаляем пассажира
+            return false;
         }
-
-        // Удаляем все билеты перед удалением пассажира
-        query.prepare("DELETE FROM tickets WHERE passenger_id = :passenger_id");
-        query.bindValue(":passenger_id", passenger.getId());
-        if (!query.exec()) {
-            qDebug() << "Error deleting tickets: " << query.lastError().text();
+        if (!deleteTicketsForPassenger(passenger)) {
+            qDebug() << "Failed to delete tickets for passenger:" << passenger.getPassengerID();
             return false;
         }
     }
 
-    bindQueryForPassengers(query, passenger);
+    QSqlQuery query;
+    query.prepare("DELETE FROM passengers WHERE id = :id");
+    query.bindValue(":id", passenger.getPassengerID());
     if (!query.exec()) {
-        qDebug() << "Database error on delete:" << query.lastError().text();
+        qDebug() << "Error deleting passenger:" << query.lastError().text();
         return false;
     }
 
     return true;
 }
+
 void Database::bindQueryForPassengers(QSqlQuery& query, const Passenger& passenger){
     query.bindValue(":first_name", passenger.getfirstName());
     query.bindValue(":last_name", passenger.getLastName());
@@ -216,3 +236,22 @@ void Database::bindQueryForPassengers(QSqlQuery& query, const Passenger& passeng
     query.bindValue(":phone_number", passenger.getPhoneNumber());
 }
 
+bool Database::hasTicketsForPassenger(const Passenger& passenger) {
+    QSqlQuery query;
+    query.prepare("SELECT COUNT(*) FROM Tickets WHERE passenger_id = :passenger_id");
+    query.bindValue(":passenger_id", passenger.getPassengerID());
+
+    if (query.exec() && query.next()) {
+        return query.value(0).toInt() > 0;
+    }
+    qDebug() << "Error checking for tickets: " << query.lastError().text();
+    return false;
+}
+
+bool Database::deleteTicketsForPassenger(const Passenger& passenger) {
+    QSqlQuery query;
+    query.prepare("DELETE FROM Tickets WHERE passenger_id = :passenger_id");
+    query.bindValue(":passenger_id", passenger.getPassengerID());
+
+    return query.exec();
+}

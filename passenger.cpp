@@ -22,6 +22,10 @@ QDate Passenger::getBirthDate() const{
     return birthDate;
 }
 
+int Passenger::getPassengerID() const{
+    return ID;
+}
+
 void Passenger::setFirstName(QString firstName){
     this->firstName = firstName;
 }
@@ -41,3 +45,5 @@ void Passenger::setPhoneNumber(QString phoneNumber){
 void Passenger::setBirthDate(QDate birthDate){
     this->birthDate = birthDate;
 }
+
+

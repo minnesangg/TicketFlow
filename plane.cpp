@@ -43,3 +43,7 @@ QString Plane::getAirline() const{
 int Plane::getCapacity() const{
     return capacity;
 }
+
+int Plane::getPlaneID() const{
+    return ID;
+}

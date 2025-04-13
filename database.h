@@ -269,6 +269,7 @@ public:
      */
     bool hasTicketsForPassenger(const Passenger& passenger);
 
+    void reconnectDatabase();
 private:
     /**
      * @brief Connects to the PostgreSQL database.
@@ -280,7 +281,6 @@ private:
     bool connectToDB();
 
     QSqlDatabase db; ///< Database connection instance.
-
 };
 
 #endif // DATABASE_H

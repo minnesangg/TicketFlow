@@ -287,3 +287,10 @@ bool Database::deleteTicketsForPassenger(const Passenger& passenger) {
 
     return query.exec();
 }
+
+void Database::reconnectDatabase() {
+    if (db.isOpen()) {
+        db.close();
+    }
+    db.open();
+}

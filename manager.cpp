@@ -92,6 +92,7 @@ void Manager::on_addTicketButton_clicked()
         ui->statusBarLine->setText("Failed to add ticket. Fill all lines!");
         clearStatusBar();
     }
+    loadInfo();
 }
 
 void Manager::on_deleteTicketButton_clicked()
@@ -109,6 +110,7 @@ void Manager::on_deleteTicketButton_clicked()
         ui->statusBarLine->setText("Failed to add ticket. Fill all lines!");
         clearStatusBar();
     }
+    loadInfo();
 }
 
 void Manager::setTicketOptions(){
@@ -163,6 +165,7 @@ void Manager::on_addPlaneButton_clicked() {
         ui->statusBarLine->setText("Failed to add plane. Fill all lines!");
         clearStatusBar();
     }
+    loadInfo();
 }
 
 void Manager::on_deletePlaneButton_clicked() {
@@ -182,6 +185,7 @@ void Manager::on_deletePlaneButton_clicked() {
 
     ui->statusBarLine->setText("Plane deleted successfully!");
     clearStatusBar();
+    loadInfo();
 }
 
 void Manager::setPlaneOptions(){
@@ -189,6 +193,7 @@ void Manager::setPlaneOptions(){
     plane.setAirline(ui->airlineLine->text());
     plane.setCapacity(ui->capacityLine->text().toInt());
 }
+
 
 void Manager::on_addPassButton_clicked() {
     setPassengerOptions();
@@ -205,6 +210,7 @@ void Manager::on_addPassButton_clicked() {
         ui->statusBarLine->setText("Failed to add passenger. Fill all lines!");
         clearStatusBar();
     }
+    loadInfo();
 }
 
 void Manager::on_deletePassButton_clicked() {
@@ -224,6 +230,7 @@ void Manager::on_deletePassButton_clicked() {
 
     ui->statusBarLine->setText("Passenger deleted successfully!");
     clearStatusBar();
+    loadInfo();
 }
 
 void Manager::setPassengerOptions(){

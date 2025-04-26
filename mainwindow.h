@@ -23,6 +23,7 @@
 #include <QMainWindow>
 #include "database.h"
 #include "manager.h"
+#include "databaseviewer.h"
 #include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
@@ -74,10 +75,13 @@ private slots:
      */
     void on_manageButton_clicked();
 
+    void on_dbViewerButto_clicked();
+
 private:
     Ui::MainWindow *ui; ///< Pointer to the user interface of the main window.
     Database db; ///< Database instance for managing interactions with the database.
     Manager manager; ///< Manager instance for handling application-specific logic.
+    DatabaseViewer dbViewer; ///< Database Viewer instance for handling database-view and find options.
 };
 
 #endif // MAINWINDOW_H

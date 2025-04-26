@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DatabaseViewer</class>
+ <widget class="QDialog" name="DatabaseViewer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>700</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #e6f0fa; 
+}</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>210</y>
+     <width>981</width>
+     <height>471</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="dbViewerLayout">
+    <item>
+     <widget class="QTableWidget" name="databaseViewer">
+      <property name="styleSheet">
+       <string notr="true">QTableWidget {
+    background-color: #f2f6fc; /* Светло-серый с голубым подтоном */
+    gridline-color: #aac4e6;   /* Чётче сетка */
+    border: 1px solid #7aa7d9; /* Более заметная синяя рамка */
+    selection-background-color: #3399ff; /* Яркое синее выделение */
+    selection-color: white;
+    alternate-background-color: #e6effa; /* Чуть темнее, чтобы строки чередовались реально видно */
+    font: 14px &quot;Segoe UI&quot;;
+    outline: none; /* Убираем тупую рамку при фокусе */
+}
+
+QHeaderView::section {
+    background-color: #7aa7d9; /* Более тёмный синий для шапки */
+    color: white;
+    padding: 6px;
+    border: 1px solid #aac4e6;
+    font-weight: bold;
+    font: 14px &quot;Segoe UI&quot;;
+}
+
+QTableWidget::item {
+    padding: 4px;
+}
+
+QTableWidget::item:selected {
+    background-color: #3399ff; /* Чёткое синее выделение */
+    color: white;
+}
+</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>70</y>
+     <width>741</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="findAndOptLayout">
+    <item>
+     <layout class="QHBoxLayout" name="tableSelectLayout">
+      <item>
+       <widget class="QLabel" name="tableSelectLabel">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 28px;
+}</string>
+        </property>
+        <property name="text">
+         <string>OPTIONS</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="tableSelectComboBox">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+    border: 2px solid #3498db; 
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1;  
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QComboBox:hover {
+    border-color: #2980b9; 
+}
+
+QComboBox:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}
+
+QComboBox::drop-down {
+    border: none;
+    background-color: #3498db;  
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ecf0f1; 
+    border: 2px solid #3498db;  
+    color: #2c3e50;  
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 5px;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #3498db;  
+    color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="finderLayout">
+      <item>
+       <widget class="QLabel" name="finderLabel">
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 28px;
+}</string>
+        </property>
+        <property name="text">
+         <string>FIND                                                 </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="finderLineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    border: 2px solid #3498db;  
+    border-radius: 5px;  
+    padding: 5px;
+    background-color: #ecf0f1; 
+    color: #2c3e50; 
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+QLineEdit:hover {
+    border-color: #2980b9;  
+}
+
+QLineEdit:focus {
+    border-color: #2980b9;  
+    background-color: #ffffff;  
+}</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

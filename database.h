@@ -25,6 +25,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QComboBox>
+#include <QSqlQueryModel>
 #include "ticket.h"
 #include "plane.h"
 #include "passenger.h"
@@ -269,7 +270,26 @@ public:
      */
     bool hasTicketsForPassenger(const Passenger& passenger);
 
+    /**
+     * @brief Reconnects to the database.
+     *
+     * This method closes the current database connection if it's open and then reopens it.
+     * It can be used when you need to refresh the database connection or after a connection failure.
+     */
     void reconnectDatabase();
+
+    /**
+     * @brief Retrieves a model for the Tickets table, including passenger and plane information.
+     *
+     * This method creates and returns a QSqlQueryModel containing data from the Tickets, Passengers, and Planes tables.
+     * It combines information such as passenger name, plane model, departure/arrival cities, times, seat number, and price.
+     * The model is populated using an SQL query with a JOIN between the three tables.
+     *
+     * @return A pointer to a QSqlQueryModel containing the ticket information, or nullptr if an error occurs.
+     *         If an error occurs while executing the query, the model will be deleted and nullptr will be returned.
+     */
+    QSqlQueryModel* getTicketsModel();
+
 private:
     /**
      * @brief Connects to the PostgreSQL database.

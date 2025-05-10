@@ -294,3 +294,21 @@ void Database::reconnectDatabase() {
     }
     db.open();
 }
+
+QSqlQueryModel* Database::getTicketsModel(){
+    auto* model = new QSqlQueryModel();
+    model->setQuery("SELECT t.id, p.first_name || ' ' || p.last_name AS passenger, "
+                    "pl.model AS plane, t.departure_city, t.arrival_city, "
+                    "t.departure_time, t.arrival_time, t.seat_number, t.price "
+                    "FROM Tickets t "
+                    "JOIN Passengers p ON t.passenger_id = p.id "
+                    "JOIN Planes pl ON t.plane_id = pl.id");
+
+    if (model->lastError().isValid()) {
+        qDebug() << "Model query error:" << model->lastError().text();
+        delete model;
+        return nullptr;
+    }
+
+    return model;
+}

@@ -49,3 +49,9 @@ void MainWindow::on_manageButton_clicked()
     manager.show();
 }
 
+
+void MainWindow::on_dbViewerButto_clicked()
+{
+    dbViewer.show();
+}
+

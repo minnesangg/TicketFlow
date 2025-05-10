@@ -27,6 +27,7 @@ CONFIG += c++17
 
 SOURCES += \
     database.cpp \
+    databaseviewer.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
 
 HEADERS += \
     database.h \
+    databaseviewer.h \
     login.h \
     mainwindow.h \
     manager.h \
@@ -45,6 +47,7 @@ HEADERS += \
     ticket.h
 
 FORMS += \
+    databaseviewer.ui \
     login.ui \
     mainwindow.ui \
     manager.ui

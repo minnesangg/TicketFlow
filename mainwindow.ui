@@ -104,7 +104,7 @@ QPushButton:pressed {
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="dbViewerButto">
+       <widget class="QPushButton" name="dbViewerButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>58</horstretch>
@@ -142,7 +142,7 @@ QPushButton:pressed {
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="settingsButton">
+       <widget class="QPushButton" name="reportButton">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
           <horstretch>58</horstretch>
@@ -175,7 +175,7 @@ QPushButton:pressed {
 }</string>
         </property>
         <property name="text">
-         <string>SETTINGS</string>
+         <string>PDF REPORT</string>
         </property>
        </widget>
       </item>

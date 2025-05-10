@@ -75,7 +75,7 @@ private slots:
      */
     void on_manageButton_clicked();
 
-    void on_dbViewerButto_clicked();
+    void on_dbViewerButton_clicked();
 
 private:
     Ui::MainWindow *ui; ///< Pointer to the user interface of the main window.

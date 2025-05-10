@@ -50,8 +50,14 @@ void MainWindow::on_manageButton_clicked()
 }
 
 
-void MainWindow::on_dbViewerButto_clicked()
+void MainWindow::on_dbViewerButton_clicked()
 {
     dbViewer.show();
+}
+
+
+void MainWindow::on_reportButton_clicked()
+{
+    //pdfReport.show();
 }
 

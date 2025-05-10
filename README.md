@@ -24,15 +24,13 @@ For detailed documentation visit [TicketFlow Documentation](https://minnesangg.g
 
 ✅ Edit and update existing ticket requests/passengers/planes.
 
+✅ Advanced search and filtering options.
+
+✅ Full documentation via **Doxygen**.
+
 ## 🚀 Future Improvements
 
 🔹 Generate reports based on ticket requests.
-
-🔹 Advanced search and filtering options.
-
-🔹 Full documentation via **Doxygen**.
-
-🔹 UI/UX improvements.
 
 ## 🛠️ Technologies
 
@@ -131,15 +129,13 @@ Contributions are welcome!
 
 ✅ Редактирование и обновление существующих заявок/самолетов/пассажиров.
 
+✅ Расширенные опции поиска и фильтрации.
+
+✅ Полная документация через **Doxygen**.
+
 ## 🚀 Будущие улучшения
 
-🔹 Генерация отчетов на основе заявок.
-
-🔹 Расширенные опции поиска и фильтрации.
-
-🔹 Полная документация через **Doxygen**.
-
-🔹 Улучшение интерфейса пользователя.
+🔹  Генерация отчетов на основе заявок.
 
 ## 🛠️ Технологии
 

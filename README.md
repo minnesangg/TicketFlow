@@ -1,10 +1,8 @@
 # TicketFlow - Airline Ticket Request Manager
 
 **TicketFlow** is an application built with **Qt (C++)**, using a **Postgres** database for storage.  
-It allows users to **manage airline ticket requests** through a clean and functional interface.  
+It allows users to **manage airline ticket requests** through a clean and functional interface, report generation, improved search filters, documentation with Doxygen.  
 All data is stored **locally** to ensure security and privacy.
-
-Future updates will include **report generation, improved search filters, documentation with Doxygen, and more.**
 
 ## 📚 Documentation
 
@@ -28,9 +26,8 @@ For detailed documentation visit [TicketFlow Documentation](https://minnesangg.g
 
 ✅ Full documentation via **Doxygen**.
 
-## 🚀 Future Improvements
+✅ Generate PDF reports based on ticket requests.
 
-🔹 Generate reports based on ticket requests.
 
 ## 🛠️ Technologies
 
@@ -106,10 +103,10 @@ Contributions are welcome!
 # TicketFlow - Менеджер заявок на авиабилеты
 
 **TicketFlow** — это приложение, разработанное на **Qt (C++)** с использованием базы данных **Postgres**.  
-Оно позволяет **управлять заявками на авиабилеты** через удобный и функциональный интерфейс.  
+Оно позволяет **управлять заявками на авиабилеты** через удобный и функциональный интерфейс генерация отчетов, расширенный поиск, документация через Doxygen и многое другое.
 Все данные хранятся **локально**, что обеспечивает безопасность и конфиденциальность.
 
-В будущем планируется **генерация отчетов, расширенный поиск, документация через Doxygen** и многое другое.
+
 
 ## 📚 Документация
 
@@ -133,9 +130,8 @@ Contributions are welcome!
 
 ✅ Полная документация через **Doxygen**.
 
-## 🚀 Будущие улучшения
+✅ Генерация PDF отчетов на основе заявок.
 
-🔹  Генерация отчетов на основе заявок.
 
 ## 🛠️ Технологии
 

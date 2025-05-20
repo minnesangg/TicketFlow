@@ -15,7 +15,7 @@
 #   along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-QT       += core gui sql
+QT       += core gui sql printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -34,7 +34,8 @@ SOURCES += \
     manager.cpp \
     passenger.cpp \
     plane.cpp \
-    ticket.cpp
+    ticket.cpp \
+    exportwindow.cpp
 
 HEADERS += \
     database.h \
@@ -44,13 +45,15 @@ HEADERS += \
     manager.h \
     passenger.h \
     plane.h \
-    ticket.h
+    ticket.h \
+    exportwindow.h
 
 FORMS += \
     databaseviewer.ui \
     login.ui \
     mainwindow.ui \
-    manager.ui
+    manager.ui \
+    exportwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

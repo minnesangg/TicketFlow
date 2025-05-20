@@ -68,8 +68,8 @@ QTableWidget::item:selected {
   <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>70</y>
+     <x>140</x>
+     <y>90</y>
      <width>741</width>
      <height>101</height>
     </rect>
@@ -196,6 +196,26 @@ QLineEdit:focus {
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="tableSelectLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>20</y>
+     <width>441</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #1c1c1c; 
+    background: transparent; 
+    font-size: 28px;
+}</string>
+   </property>
+   <property name="text">
+    <string>DATABASE VIEWER WINDOW</string>
+   </property>
   </widget>
  </widget>
  <resources/>

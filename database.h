@@ -290,6 +290,17 @@ public:
      */
     QSqlQueryModel* getTicketsModel();
 
+    /**
+     * @brief Returns the number of rows in the specified table.
+     *
+     * Executes a SQL query "SELECT COUNT(*) FROM tableName" to get the total number of rows.
+     *
+     * @param tableName The name of the table to query.
+     * @return Number of rows in the table on success,
+     *         or -1 if the query fails or the table does not exist.
+     */
+    int getColumnCount(const QString& tableName);
+
 private:
     /**
      * @brief Connects to the PostgreSQL database.

@@ -24,6 +24,7 @@
 #include "database.h"
 #include "manager.h"
 #include "databaseviewer.h"
+#include "exportwindow.h"
 #include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
@@ -75,13 +76,24 @@ private slots:
      */
     void on_manageButton_clicked();
 
+    /**
+     * @brief Slot for handling the database viewer button click event.
+     * Opens the database viewer window for handling find and view operations on applications.
+     */
     void on_dbViewerButton_clicked();
+
+    /**
+     * @brief Slot for handling the pdf export button click event.
+     * Opens the pdf export window for handling export one or all tables to PDF on applications.
+     */
+    void on_exportButton_clicked();
 
 private:
     Ui::MainWindow *ui; ///< Pointer to the user interface of the main window.
     Database db; ///< Database instance for managing interactions with the database.
     Manager manager; ///< Manager instance for handling application-specific logic.
     DatabaseViewer dbViewer; ///< Database Viewer instance for handling database-view and find options.
+    ExportWindow exportWindow; ///< PDF Export instance for handling one or all tables export as PDF options.
 };
 
 #endif // MAINWINDOW_H

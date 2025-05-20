@@ -56,8 +56,8 @@ void MainWindow::on_dbViewerButton_clicked()
 }
 
 
-void MainWindow::on_reportButton_clicked()
+void MainWindow::on_exportButton_clicked()
 {
-    //pdfReport.show();
+    exportWindow.show();
 }
 

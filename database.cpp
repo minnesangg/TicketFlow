@@ -312,3 +312,18 @@ QSqlQueryModel* Database::getTicketsModel(){
 
     return model;
 }
+
+int Database::getColumnCount(const QString& tableName){
+    QSqlQuery query;
+    QString queryStr = QString("SELECT COUNT(*) FROM %1").arg(tableName);
+
+    if (!query.exec(queryStr)) {
+        return -1;
+    }
+
+    if (query.next()) {
+        return query.value(0).toInt();
+    }
+
+    return -1;
+}

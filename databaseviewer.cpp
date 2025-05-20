@@ -52,7 +52,6 @@ void DatabaseViewer::loadComboBoxData(){
 
 void DatabaseViewer::comboBoxChanged(int index){
     QString selectedText = ui->tableSelectComboBox->itemText(index);
-    qDebug() << "Выбрана таблица:" << selectedText;
     loadDataToTable(selectedText);
 }
 
@@ -166,7 +165,7 @@ void DatabaseViewer::fillTableForPassengers(int row){
     row = 0;
     while (query.next()) {
         ui->databaseViewer->insertRow(row);
-        for (int col = 0; col < 8; ++col) {
+        for (int col = 0; col < 5; ++col) {
             QString value = query.value(col).toString();
             ui->databaseViewer->setItem(row, col, new QTableWidgetItem(value));
         }
@@ -184,7 +183,7 @@ void DatabaseViewer::fillTableForPlanes(int row){
     row = 0;
     while (query.next()) {
         ui->databaseViewer->insertRow(row);
-        for (int col = 0; col < 8; ++col) {
+        for (int col = 0; col < 3; ++col) {
             QString value = query.value(col).toString();
             ui->databaseViewer->setItem(row, col, new QTableWidgetItem(value));
         }

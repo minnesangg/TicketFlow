@@ -16,8 +16,8 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "exportwindow.h"
-#include "ui_exportwindow.h"
+#include "headers/exportwindow.h"
+#include "forms/ui_exportwindow.h"
 
 ExportWindow::ExportWindow(QWidget *parent)
     : QDialog(parent)

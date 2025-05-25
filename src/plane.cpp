@@ -16,7 +16,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "plane.h"
+#include "headers/plane.h"
 
 Plane::Plane() {}
 

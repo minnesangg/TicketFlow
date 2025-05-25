@@ -23,7 +23,7 @@
 #include <QFile>
 #include <QPrinter>
 #include <QFileDialog>
-#include "database.h"
+#include "headers/database.h"
 
 
 /**

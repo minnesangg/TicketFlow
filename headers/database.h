@@ -26,9 +26,9 @@
 #include <QDebug>
 #include <QComboBox>
 #include <QSqlQueryModel>
-#include "ticket.h"
-#include "plane.h"
-#include "passenger.h"
+#include "headers/ticket.h"
+#include "headers/plane.h"
+#include "headers/passenger.h"
 
 /**
  * @brief Database schema for airline ticket management.

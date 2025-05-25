@@ -17,8 +17,8 @@
  */
 
 
-#include "mainwindow.h"
-#include "login.h"
+#include "headers/mainwindow.h"
+#include "headers/login.h"
 #include <QApplication>
 
 /**

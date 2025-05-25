@@ -16,8 +16,8 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "manager.h"
-#include "ui_manager.h"
+#include "headers/manager.h"
+#include "forms/ui_manager.h"
 
 Manager::Manager(QWidget *parent)
     : QDialog(parent)

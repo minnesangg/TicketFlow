@@ -20,7 +20,7 @@
 #define DATABASEVIEWER_H
 
 #include <QDialog>
-#include "database.h"
+#include "headers/database.h"
 #include <QDebug>
 #include <QString>
 #include <QTableWidgetItem>

@@ -17,8 +17,8 @@
  */
 
 
-#include "login.h"
-#include "ui_login.h"
+#include "headers/login.h"
+#include "forms/ui_login.h"
 
 
 Login::Login(QWidget *parent)

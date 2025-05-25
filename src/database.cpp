@@ -16,7 +16,7 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "database.h"
+#include "headers/database.h"
 
 Database::Database() {
     connectToDB();

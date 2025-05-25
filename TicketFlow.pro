@@ -26,34 +26,34 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    database.cpp \
-    databaseviewer.cpp \
-    login.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    manager.cpp \
-    passenger.cpp \
-    plane.cpp \
-    ticket.cpp \
-    exportwindow.cpp
+    src/database.cpp \
+    src/databaseviewer.cpp \
+    src/login.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/manager.cpp \
+    src/passenger.cpp \
+    src/plane.cpp \
+    src/ticket.cpp \
+    src/exportwindow.cpp
 
 HEADERS += \
-    database.h \
-    databaseviewer.h \
-    login.h \
-    mainwindow.h \
-    manager.h \
-    passenger.h \
-    plane.h \
-    ticket.h \
-    exportwindow.h
+    headers/database.h \
+    headers/databaseviewer.h \
+    headers/login.h \
+    headers/mainwindow.h \
+    headers/manager.h \
+    headers/passenger.h \
+    headers/plane.h \
+    headers/ticket.h \
+    headers/exportwindow.h
 
 FORMS += \
-    databaseviewer.ui \
-    login.ui \
-    mainwindow.ui \
-    manager.ui \
-    exportwindow.ui
+    forms/databaseviewer.ui \
+    forms/login.ui \
+    forms/mainwindow.ui \
+    forms/manager.ui \
+    forms/exportwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

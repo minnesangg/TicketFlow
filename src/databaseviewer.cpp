@@ -16,8 +16,8 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "databaseviewer.h"
-#include "ui_databaseviewer.h"
+#include "headers/databaseviewer.h"
+#include "forms/ui_databaseviewer.h"
 
 DatabaseViewer::DatabaseViewer(QWidget *parent)
     : QDialog(parent)

@@ -21,10 +21,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "database.h"
-#include "manager.h"
-#include "databaseviewer.h"
-#include "exportwindow.h"
+#include "headers/database.h"
+#include "headers/manager.h"
+#include "headers/databaseviewer.h"
+#include "headers/exportwindow.h"
 #include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
